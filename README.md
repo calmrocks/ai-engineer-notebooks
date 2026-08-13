@@ -5,6 +5,13 @@ Engineer (FDE)** skill set: building working systems on top of foundation
 models — model APIs, RAG, evals, and agents — using raw APIs, not
 frameworks.
 
+Everything runs on the **free [Groq](https://console.groq.com/) API** (Llama
+models, no credit card required), so you can work through the whole thing
+without a paid account. The patterns — tool calling, structured output,
+streaming, the agent loop — use the OpenAI-compatible interface Groq exposes,
+which transfers directly to OpenAI and (with small shape changes) to
+Anthropic.
+
 Built as the hands-on companion to
 [Plan: Transitioning to Forward Deployed Engineer / AI Engineer](https://www.calm.rocks/resources/career-development/transition-fde-ai-engineer/).
 The plan explains what to learn and why; these notebooks are where you run it.
@@ -78,14 +85,14 @@ for hiring.
 
 ## Setup
 
-1. Get an API key ([Anthropic](https://console.anthropic.com/) or
-   [OpenAI](https://platform.openai.com/)).
-2. In Colab: the key icon in the left sidebar → add `ANTHROPIC_API_KEY`
-   (and/or `OPENAI_API_KEY`) as secrets.
+1. Get a free API key at [console.groq.com](https://console.groq.com/) — no
+   credit card required.
+2. In Colab: the key icon in the left sidebar → add `GROQ_API_KEY` as a secret,
+   and toggle notebook access on.
 3. Open any notebook via its badge and run top to bottom.
 
-Running locally instead: `pip install -r requirements.txt`, export the
-same env vars, open with Jupyter.
+Running locally instead: `pip install -r requirements.txt`, `export
+GROQ_API_KEY=...`, open with Jupyter.
 
 ## Related reading
 

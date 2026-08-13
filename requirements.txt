@@ -1,3 +1,6 @@
-anthropic>=0.40
-openai>=1.50
+groq>=0.11
+sentence-transformers>=3.0
+tiktoken>=0.7
+numpy
+requests
 jupyter
