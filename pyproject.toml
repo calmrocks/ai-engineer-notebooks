@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aien"
+version = "0.1.0"
+description = "Shared setup helpers for ai-engineer-notebooks (credential loading + Groq client)."
+requires-python = ">=3.9"
+dependencies = ["groq>=0.11"]
+
+[tool.setuptools]
+packages = ["aien"]

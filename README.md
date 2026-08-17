@@ -79,8 +79,11 @@ for hiring.
 - **Raw model APIs, no frameworks.** Patterns are durable; wrappers churn.
 - **One shared corpus** (`data/`) across RAG and eval sections, so evals
   measure the retrieval you actually built.
-- **Self-contained notebooks.** First cell installs, second cell loads
-  keys from Colab secrets. No hidden state between notebooks.
+- **Self-contained notebooks.** First cell installs, second cell calls
+  `from aien import setup; client, MODEL = setup()` to load your key from
+  Colab secrets (or a local env var). No hidden state between notebooks.
+  `aien` is the tiny shared-setup package in this repo — one place to change
+  credential loading — installed automatically by the first cell.
 - **Every notebook ends with exercises** — do them before moving on.
 
 ## Setup
@@ -91,8 +94,9 @@ for hiring.
    and toggle notebook access on.
 3. Open any notebook via its badge and run top to bottom.
 
-Running locally instead: `pip install -r requirements.txt`, `export
-GROQ_API_KEY=...`, open with Jupyter.
+Running locally instead: `pip install -r requirements.txt && pip install -e .`
+(the second installs the `aien` setup helper), `export GROQ_API_KEY=...`,
+open with Jupyter.
 
 ## Related reading
 

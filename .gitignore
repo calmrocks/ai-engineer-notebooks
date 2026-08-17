@@ -3,3 +3,8 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 *.pyc
+
+# Python packaging build artifacts
+*.egg-info/
+build/
+dist/
