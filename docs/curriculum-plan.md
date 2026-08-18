@@ -78,20 +78,24 @@ chunking's *necessity* is shown in 03/embeddings, its *craft* deferred to
   (plan says skip).
 - Data-pipeline / deploy-infra notebooks (that's the capstone's job).
 
-## Open work — Phase 2 (polish the evaluators also recommended)
+## Phase 2 — DONE (2026-08-17)
 
-Not yet done; all lighter-touch than the reorder:
+All four evaluator-recommended polish items shipped:
 
-1. **Cross-link the eval spine** — from 02 into 03/RAG's intro; add a short
-   **trajectory-eval** touchpoint after agents (evals should visibly *return*).
-2. **Non-determinism "shock" cell** in 00 Setup (run same prompt ×5, watch it
-   vary / a structured parse fail) — motivation hook for evals.
-3. **Workflows-before-autonomy** beat at the front of 05 Agents (pull the "when
-   a pipeline beats an agent" intuition earlier).
-4. **Cross-provider API reference code** (non-runnable, clearly fenced) where
-   Groq can't run a plan-named topic: Anthropic `cache_control`, OpenAI prefix
-   caching + Batch submit/poll (in 01/context-caching); OpenAI `fine_tuning.jobs`
-   + Bedrock adapter path (in 06/adaptation).
+1. **Eval spine cross-linked** — 00 setup "shock" motivates it; 03/RAG intro
+   calls back to the section-02 habit; a **trajectory-eval** touchpoint added
+   after agents (05/guardrails) so evals visibly *return*.
+2. **Non-determinism "shock" cell** in 00 Setup (same prompt ×5 varies; a strict
+   output contract breaks intermittently).
+3. **Workflows-before-autonomy** caution at the front of 05/agent-loop
+   ("reach for the loop last; pipeline if the steps are known").
+4. **Cross-provider reference code** (non-runnable markdown snippets, verified
+   against current provider docs): Anthropic `cache_control` + OpenAI Batch
+   submit/poll in 01/context-caching; OpenAI `fine_tuning.jobs` + Bedrock note
+   in 06/adaptation. Kept as fenced markdown so they can't break a Groq run.
+
+No open structural work remains. Any future work is content refinement or
+the still-pending end-to-end Colab execution pass (see caveats).
 
 ## Standing caveats
 
