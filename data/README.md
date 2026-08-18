@@ -3,6 +3,7 @@
 One deliberately messy corpus used across the RAG (02) and evals (03)
 sections, so the eval notebooks measure the retrieval you actually built.
 
-Populated by `02-rag/01-chunking.ipynb` on first run (downloads and
-caches here in Colab; commit small source files directly if running
-locally).
+Every RAG/evals notebook includes the same corpus-download cell (self-contained),
+so whichever you run first populates this directory — in section order that's
+`02-rag/01-embeddings-retrieval.ipynb`. Downloads and caches here in Colab;
+commit small source files directly if running locally.
