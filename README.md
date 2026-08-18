@@ -69,6 +69,7 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 | [Agent loop from scratch](04-agents/01-agent-loop-from-scratch.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-agents/01-agent-loop-from-scratch.ipynb) | A working agent loop in raw API calls — no framework |
 | [Tool design](04-agents/02-tool-design.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-agents/02-tool-design.ipynb) | Designing tools the model can actually use well |
 | [Guardrails & budgets](04-agents/03-guardrails-and-budgets.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-agents/03-guardrails-and-budgets.ipynb) | Stopping conditions, cost/latency budgets, when a pipeline beats an agent |
+| [MCP & the tool ecosystem](04-agents/04-mcp-and-the-tool-ecosystem.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-agents/04-mcp-and-the-tool-ecosystem.ipynb) | Concept: what the Model Context Protocol standardizes, how it maps to the raw tool loop, and when to reach for it |
 
 ### 05 — Adapting the model
 
@@ -76,9 +77,22 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 |---|---|
 | [Fine-tune vs RAG vs prompt](05-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) | When to change the model's weights vs its inputs; what LoRA/QLoRA are and cost; the argument you'll have in the room — plus an optional real LoRA fine-tune on a free GPU |
 
-### 06 — Capstone
+### 06 — Security
 
-Not a notebook. [The brief](06-capstone/README.md) for the deployed
+| Notebook | What you'll learn |
+|---|---|
+| [Prompt injection & the trust boundary](06-security/01-prompt-injection-and-trust.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/06-security/01-prompt-injection-and-trust.ipynb) | Direct & indirect prompt injection, output handling, PII, excessive agency — the OWASP LLM Top 10 risks, failing live then defended |
+
+### 07 — Operations
+
+| Notebook | What you'll learn |
+|---|---|
+| [Observability & LLMOps](07-operations/01-observability-and-llmops.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/07-operations/01-observability-and-llmops.ipynb) | Tracing every call, safe prompt logging, cost/latency/error metrics, drift detection, and the observe→eval feedback loop |
+| [Reliability & fallbacks](07-operations/02-reliability-and-fallbacks.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/07-operations/02-reliability-and-fallbacks.ipynb) | Retries with backoff, timeouts, fallback models, output validation, circuit breakers, graceful degradation |
+
+### 08 — Capstone
+
+Not a notebook. [The brief](08-capstone/README.md) for the deployed
 project that goes on your resume — built as a real repo with a serving
 component and an eval report. Notebooks are for learning; the capstone is
 for hiring.
