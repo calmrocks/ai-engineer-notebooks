@@ -46,6 +46,7 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 
 | Notebook | What you'll learn |
 |---|---|
+| [What is RAG?](02-rag/00-what-is-rag.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/02-rag/00-what-is-rag.ipynb) | The retrieve → augment → generate loop, why RAG beats a plain LLM, and why RAG isn't the same as embeddings — with a 15-line working demo |
 | [Chunking](02-rag/01-chunking.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/02-rag/01-chunking.ipynb) | Chunking strategies on a real messy corpus, and how they change retrieval |
 | [Embeddings & retrieval](02-rag/02-embeddings-retrieval.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/02-rag/02-embeddings-retrieval.ipynb) | Embedding choice, vector search, similarity pitfalls |
 | [Hybrid & reranking](02-rag/03-hybrid-and-reranking.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/02-rag/03-hybrid-and-reranking.ipynb) | Keyword + vector hybrid retrieval, rerankers, when each earns its cost |
