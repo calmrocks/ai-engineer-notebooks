@@ -2,15 +2,17 @@
 
 Runnable Colab notebooks for learning the **AI Engineer / Forward Deployed
 Engineer (FDE)** skill set: building working systems on top of foundation
-models — model APIs, RAG, evals, and agents — using raw APIs, not
-frameworks.
+models — model APIs, RAG, evals, agents, and when to adapt the model itself —
+using raw APIs, not frameworks.
 
 Everything runs on the **free [Groq](https://console.groq.com/) API** (Llama
 models, no credit card required), so you can work through the whole thing
 without a paid account. The patterns — tool calling, structured output,
 streaming, the agent loop — use the OpenAI-compatible interface Groq exposes,
 which transfers directly to OpenAI and (with small shape changes) to
-Anthropic.
+Anthropic. (One exception: the optional LoRA fine-tuning appendix in section
+05 needs a free Colab GPU runtime and a training stack, since Groq is
+inference-only — it's clearly fenced and skippable.)
 
 Built as the hands-on companion to
 [Plan: Transitioning to Forward Deployed Engineer / AI Engineer](https://www.calm.rocks/resources/career-development/transition-fde-ai-engineer/).
@@ -68,9 +70,15 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 | [Tool design](04-agents/02-tool-design.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-agents/02-tool-design.ipynb) | Designing tools the model can actually use well |
 | [Guardrails & budgets](04-agents/03-guardrails-and-budgets.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-agents/03-guardrails-and-budgets.ipynb) | Stopping conditions, cost/latency budgets, when a pipeline beats an agent |
 
-### 05 — Capstone
+### 05 — Adapting the model
 
-Not a notebook. [The brief](05-capstone/README.md) for the deployed
+| Notebook | What you'll learn |
+|---|---|
+| [Fine-tune vs RAG vs prompt](05-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) | When to change the model's weights vs its inputs; what LoRA/QLoRA are and cost; the argument you'll have in the room — plus an optional real LoRA fine-tune on a free GPU |
+
+### 06 — Capstone
+
+Not a notebook. [The brief](06-capstone/README.md) for the deployed
 project that goes on your resume — built as a real repo with a serving
 component and an eval report. Notebooks are for learning; the capstone is
 for hiring.
