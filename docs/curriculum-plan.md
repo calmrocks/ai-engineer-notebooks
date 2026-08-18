@@ -97,6 +97,19 @@ All four evaluator-recommended polish items shipped:
 No open structural work remains. Any future work is content refinement or
 the still-pending end-to-end Colab execution pass (see caveats).
 
+## Best practices & anti-patterns (added 2026-08-18)
+
+- **`docs/best-practices-and-anti-patterns.md`** — consolidated ✅ do / ❌ don't
+  for the whole stack, section by section, ending with "the five that matter
+  most." Doubles as a pre-interview review sheet and pre-capstone checklist;
+  linked from the capstone README ("Before you ship").
+- **Per-notebook closing beat** — a uniform `## Practices & anti-patterns`
+  table added before Exercises in the 6 notebooks that lacked one
+  (02-tool-calling, 03-hybrid, 03-chunking, 04-regression, 05-mcp,
+  08-observability). The other notebooks already carried equivalent content
+  (ladders, checklists, "when a pipeline beats an agent", diagnosis cards) and
+  were left as-is to avoid redundancy.
+
 ## Standing caveats
 
 - **Notebooks are verified statically only** (JSON structure, code compiles,

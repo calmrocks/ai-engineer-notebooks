@@ -27,3 +27,10 @@ Full requirements and anti-patterns:
    cost budget.
 3. An internal AI tool at your current job — adoption numbers beat
    architecture diagrams.
+
+## Before you ship
+
+Walk the [best practices & anti-patterns cheat sheet](../docs/best-practices-and-anti-patterns.md)
+— the do/don't for the whole stack in one place. It's also the answer sheet
+for the "what would you watch out for building this?" interview question. Make
+sure your project is on the ✅ side of each row before you call it done.
