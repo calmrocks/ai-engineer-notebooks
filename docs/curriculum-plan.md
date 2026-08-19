@@ -110,6 +110,22 @@ the still-pending end-to-end Colab execution pass (see caveats).
   (ladders, checklists, "when a pipeline beats an agent", diagnosis cards) and
   were left as-is to avoid redundancy.
 
+## Callout theming (added 2026-08-18)
+
+Site-brand callouts, within the constraint that Colab/GitHub notebook
+renderers strip CSS and don't support the `[!NOTE]` alert extension (verified:
+literal text on both). Convention in `docs/theming.md`:
+
+- **Emoji-labelled blockquotes** — `> **⭐ Key takeaway —** …`. Roles map to
+  the site's `--role-*` colors via emoji: ⭐ key takeaway, 💡 why, 🔵 signal,
+  ⚠️ production reality, 🚩 common mistake. Clean and identical in Colab + GitHub.
+- Applied **1–2 per notebook** to the single strongest takeaway/mistake, only
+  where the insight was buried in prose. Notebooks that already carry a
+  practices table or checklist (tool-calling, llm-judge) were left alone.
+- Real colored boxes would need inline-HTML `<div style=…>` (chosen against,
+  for clean source) or the deferred HTML-hosting route (the only path to the
+  walkthrough teal).
+
 ## Standing caveats
 
 - **Notebooks are verified statically only** (JSON structure, code compiles,
