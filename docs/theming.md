@@ -14,34 +14,42 @@ with `global.css` attached (see "Hosting, later").
 
 What *does* travel across viewers: **content structure** and **callouts**.
 
-## Callouts — dual format (GitHub alert + emoji label)
+## Callouts — emoji-labelled blockquotes (no `[!ALERT]` syntax)
 
-The site themes the five GitHub-alert roles with fixed meanings. GitHub renders
-`[!NOTE]` etc. as colored boxes that already match the site; **Colab does not**
-(it shows the literal `[!NOTE]` text). Since these notebooks open mainly via the
-Colab badge, we author callouts in a **dual format**: the alert keyword (for
-GitHub + future hosting) *plus* an emoji-labelled bold lead (so the role still
-reads clearly on Colab).
+Important gotcha, learned the hard way: **GitHub's notebook (`.ipynb`) renderer
+is NOT its markdown-file renderer.** The `[!NOTE]`/`[!WARNING]` alert extension
+works in `.md` files, issues, and READMEs — but **not** inside a rendered
+notebook, and **not** in Colab either. In both notebook viewers, `[!NOTE]`
+shows as literal text on a plain blockquote. So we do **not** use it.
+
+Instead: a plain blockquote led by an **emoji + bold label**. Clean and
+identical in Colab and GitHub; the emoji carries the role even without color.
 
 ```markdown
-> [!WARNING]
 > **⚠️ Production reality —** the usage chunk arrives last; drop it and you lose the bill.
 ```
 
-Role → emoji → meaning (matches the site's `--role-*` colors):
+Role → emoji → meaning (emoji stands in for the site's `--role-*` colors):
 
-| Alert | Site color | Emoji | Use it for |
-|---|---|---|---|
-| `[!IMPORTANT]` | purple | ⭐ | **Key takeaway** — the one thing to remember |
-| `[!TIP]` | green | 💡 | **Why** — the good reason / positive |
-| `[!NOTE]` | blue | 🔵 | **Interview signal / info** |
-| `[!WARNING]` | amber | ⚠️ | **Production reality** — what bites in prod |
-| `[!CAUTION]` | red | 🚩 | **Common mistake / anti-pattern** |
+| Role (site color) | Emoji | Use it for |
+|---|---|---|
+| Key takeaway (purple) | ⭐ | the one thing to remember |
+| Why (green) | 💡 | the good reason / positive |
+| Interview signal (blue) | 🔵 | info the loop rewards |
+| Production reality (amber) | ⚠️ | what bites in prod |
+| Common mistake (red) | 🚩 | anti-pattern / danger |
 
 Rules:
 - Keep callouts **rare** — 1–3 per notebook. They lose force if every paragraph is boxed.
-- Lead line is always `**<emoji> <Label> —** <text>` so Colab readers get the role even without color.
-- Don't repurpose a role's meaning (the site enforces this too).
+- Always `> **<emoji> <Label> —** <text>`.
+- Don't repurpose a role's emoji/meaning.
+
+**The only way to get real colored boxes in a raw notebook** is inline HTML with
+inline `style=` (a `<div style="border-left:4px solid #d1242f;…">`) using the
+site hexes — it renders in both viewers but puts raw HTML in the cells. We chose
+*not* to, favoring clean source; revisit if colored boxes become worth it.
+When the notebooks are hosted as HTML (below), the emoji-labelled blockquotes
+can be upgraded to the site's real colored callouts via `global.css`.
 
 ## Content structure — the walkthrough shape
 
