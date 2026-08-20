@@ -45,7 +45,7 @@ def load_key():
         ) from e
 
 
-def setup(model=DEFAULT_MODEL, quiet=False):
+def setup(model=DEFAULT_MODEL, quiet=False, max_retries=8):
     """Load the key and return a ready (client, model) pair.
 
     Usage in a notebook:
@@ -56,11 +56,18 @@ def setup(model=DEFAULT_MODEL, quiet=False):
     Pass `model=` to override the default (e.g. a smaller model for bulk work).
     If a call later fails with a 404, list available models — see
     00-setup/00-environment.ipynb.
+
+    `max_retries` (default 8, vs the SDK's 2): the free Groq tier has a low
+    tokens-per-minute cap, so a notebook that fires several calls in a burst
+    can hit HTTP 429. The SDK retries 429s automatically with backoff and
+    honors the server's `retry-after` hint; a higher ceiling just lets those
+    short waits resolve transparently instead of surfacing as an error. Costs
+    nothing when you're under the limit.
     """
     load_key()
     from groq import Groq  # imported lazily so `import aien` works without groq
 
-    client = Groq()
+    client = Groq(max_retries=max_retries)
     if not quiet:
         print(f"Groq client ready. MODEL = {model}")
     return client, model
