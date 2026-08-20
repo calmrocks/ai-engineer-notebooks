@@ -39,6 +39,7 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 
 | Notebook | What you'll learn |
 |---|---|
+| [Prompting fundamentals](01-model-apis/00-prompting-basics.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/00-prompting-basics.ipynb) | Clear instructions, few-shot, output-format specs, step-by-step reasoning — the cheapest lever, each shown moving a number |
 | [Structured output](01-model-apis/01-structured-output.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/01-structured-output.ipynb) | Getting reliable JSON out of a model, and where it breaks |
 | [Tool calling](01-model-apis/02-tool-calling.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/02-tool-calling.ipynb) | Function/tool calling end to end, error paths included |
 | [Streaming](01-model-apis/03-streaming.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/03-streaming.ipynb) | Streaming responses and what UIs need from them |

@@ -18,7 +18,7 @@ through RAG + evals so evals measure the retrieval you actually built.
 
 ```
 00 Setup            environment, keys, cost hygiene, spend guard
-01 Model APIs       structured output, tool calling, streaming, context/caching+batch
+01 Model APIs       prompting fundamentals, structured output, tool calling, streaming, context/caching+batch
 02 Evals I          NEW — "measure before you tune" on the 01 extraction task (no RAG dep)
 03 RAG              what-is-rag → embeddings → hybrid/rerank → chunking → why-rag-fails
 04 Evals II         golden sets, LLM-as-judge, regression-as-CI (coupled to RAG)
@@ -73,7 +73,13 @@ chunking's *necessity* is shown in 03/embeddings, its *craft* deferred to
 ## Explicitly rejected
 
 - Multimodal / multi-agent as hands-on core modules (see #3).
-- Standalone prompt-engineering module (woven throughout; plan = baseline).
+- Standalone prompt-engineering *hero module* (both evaluators warned it breeds
+  cargo-cult tricks). BUT — an audit (2026-08-20) found the intended "woven in"
+  fold-in never actually happened: prompting was *used* everywhere, *taught*
+  nowhere. Fixed by adding `01-model-apis/00-prompting-basics` (fundamentals as
+  the on-ramp to structured output: clear instructions, few-shot, format specs,
+  CoT — tied to the eval habit, anti-cargo-cult). Not a hero module; a short
+  front-of-section fold-in, which is what the plan intended all along.
 - Fine-tuning internals / RLHF / classical ML / agent-framework deep-dives
   (plan says skip).
 - Data-pipeline / deploy-infra notebooks (that's the capstone's job).
