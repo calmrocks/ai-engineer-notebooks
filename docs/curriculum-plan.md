@@ -116,6 +116,20 @@ the still-pending end-to-end Colab execution pass (see caveats).
   (ladders, checklists, "when a pipeline beats an agent", diagnosis cards) and
   were left as-is to avoid redundancy.
 
+## Adaptation notebook reframe (added 2026-08-22)
+
+- **06/fine-tune-vs-rag-vs-prompt** reframed around a *degree-of-model-modification*
+  spectrum (prompt → RAG │ LoRA → full fine-tune; inputs vs weights) instead of
+  popularity, plus a "pendulum" cell (fine-tune was the early default → field swung
+  to prompt/RAG → fine-tuning specialized to style-at-scale + small-model
+  distillation). Taxonomy precision added: LoRA is a *kind* of fine-tuning, not a
+  peer. Hosted reference code expanded to a verified 3-tier split — **abstracted**
+  (OpenAI, Bedrock: no LoRA knob) vs **explicit-LoRA** (Together, Fireworks:
+  `lora=True`/`--lora-rank`) vs self-train (`peft`). All snippets reference-only.
+  Provider APIs verified against live docs 2026-08-22; corrected a prior wrong
+  claim that Bedrock yields a "LoRA endpoint" (Bedrock has no LoRA surface —
+  explicit LoRA on AWS is SageMaker).
+
 ## Callout theming (added 2026-08-18)
 
 Site-brand callouts, within the constraint that Colab/GitHub notebook
