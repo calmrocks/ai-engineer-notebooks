@@ -116,6 +116,25 @@ the still-pending end-to-end Colab execution pass (see caveats).
   (ladders, checklists, "when a pipeline beats an agent", diagnosis cards) and
   were left as-is to avoid redundancy.
 
+## Skills notebook added (2026-08-23)
+
+- New **05/05-skills-and-progressive-disclosure** (concept-only, no runnable code
+  — same fence as MCP: Skills live in an agent host, not a raw Groq
+  `chat.completions` call). Closes a real gap: the repo taught tools, the agent
+  loop, and MCP, but not how to *package reusable know-how* an agent loads on
+  demand. Framed **pattern-first** (progressive disclosure / "context is a
+  budget") with Anthropic's `SKILL.md` as the concrete instance — deliberately,
+  because the format is now an **open standard** (agentskills.io) adopted across
+  vendors (OpenAI Codex, Gemini CLI, editors), so it's a durable pattern, not a
+  vendor feature. Spine is the trio **Tools *act* / MCP *connects* / Skills
+  *package***. Cross-linked from 04-mcp; README + this doc updated. Details
+  verified against live Anthropic/agentskills docs 2026-08-23: 6-field portable
+  frontmatter (`name`, `description` required; no `version`), 3-level
+  progressive disclosure (~100 tok metadata → <5k body → bundled files/scripts,
+  scripts run via bash so only output enters context). This does NOT reverse
+  decision #3 (multi-agent/multimodal stay off-spine) — Skills is a
+  single-agent context-management concept, not orchestration.
+
 ## Adaptation notebook reframe (added 2026-08-22)
 
 - **06/fine-tune-vs-rag-vs-prompt** reframed around a *degree-of-model-modification*
