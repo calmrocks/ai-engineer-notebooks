@@ -65,6 +65,10 @@ the fastest way to remember the rule. Each section links to where it's taught.
 | Grade the **trajectory** (tool path), not just the final answer | Accept a right-looking answer reached by an insane, costly path |
 | Fail loud with a status + partial trace | Silently truncate and return partial work as done |
 | Know MCP maps to the raw tool loop; adopt when integrations justify it | Reach for a framework before you understand the loop it wraps |
+| Package *occasional, detailed* know-how as a **skill** (loaded on demand); keep always-relevant lines in the prompt | Stuff every playbook into the system prompt and pay for all of it every turn |
+| Write the skill **`description`** for the model — what it does *and when to use it* | Vague description, then wonder why the skill never triggers |
+| Push fragile logic into a bundled, validated **script** (only its output costs context) | Make the model re-derive the same brittle procedure in-context each time |
+| Treat installed skills as trusted code; review third-party ones (see 07) | Install a public skill and assume its body/scripts are safe |
 
 ## 06 — Adapting the model
 
