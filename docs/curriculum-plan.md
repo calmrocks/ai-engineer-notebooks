@@ -135,6 +135,22 @@ the still-pending end-to-end Colab execution pass (see caveats).
   decision #3 (multi-agent/multimodal stay off-spine) — Skills is a
   single-agent context-management concept, not orchestration.
 
+## Adaptation: FFT-vs-LoRA second axis (added 2026-08-23)
+
+- Added a **"full fine-tuning vs LoRA"** cell to 06 (after "What LoRA is",
+  before the provider paths): the umbrella framing (fine-tuning = category; FFT
+  + LoRA = two methods), a comparison table (trainable params, VRAM, artifact
+  size, catastrophic forgetting), and **why LoRA dominates** — multi-tenant
+  serving (one frozen base + hot-swapped adapters) and accessibility (single
+  GPU). Two AWS citations verified against live posts 2026-08-23: multi-LoRA
+  vLLM serving on SageMaker/Bedrock (confirms swap-adapters-per-request; qual.
+  "5×10%-GPU → 1 GPU"), and Bedrock Custom Model Import GA (confirms full/merged
+  Safetensors only — a LoRA must be merged in first, consistent with the
+  existing cell-9 Bedrock note). Two new exercises (FFT-vs-LoRA judgment; design
+  the multi-adapter serving story). Deliberately kept decision-framed, not an
+  internals deep-dive — no optimizer/gradient math. Doubles down on the
+  taxonomy precision from the [reframe below]; best-practices 06 table updated.
+
 ## Adaptation notebook reframe (added 2026-08-22)
 
 - **06/fine-tune-vs-rag-vs-prompt** reframed around a *degree-of-model-modification*

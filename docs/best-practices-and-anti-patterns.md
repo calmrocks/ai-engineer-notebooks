@@ -76,6 +76,8 @@ the fastest way to remember the rule. Each section links to where it's taught.
 |---|---|
 | Order the levers: **prompt → RAG → fine-tune**, advance only on eval failure | Fine-tune first because it "sounds like real ML" |
 | Fine-tune for style / format / narrow-task cost — behavior, not facts | Fine-tune to add knowledge (that's RAG's job — stale, uncitable) |
+| Default to **LoRA** over full fine-tuning: cheap, single-GPU, swappable adapters, less forgetting | Full-fine-tune by default; reserve it for drastic change (new language, deep reasoning) |
+| Serve many variants as one frozen base + hot-swapped adapters | Stand up a separate full model per task and pay for idle GPUs |
 | Prove the fine-tune beat prompt+RAG with the same eval harness | Ship a fine-tune because it *feels* better; no before/after number |
 | Prefer a hosted fine-tuning API unless you need full control | Stand up a GPU training stack for a decision you'll make twice |
 
