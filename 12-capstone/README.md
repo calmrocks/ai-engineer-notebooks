@@ -8,6 +8,11 @@ as a real repo, deployed, that you can hand an interviewer a link to.
 Full requirements and anti-patterns:
 [Guide: Building a Real LLM Project for Your Resume](https://www.calm.rocks/resources/career-development/real-llm-project/).
 
+**See it done first:** [Case study A](../docs/case-studies/A-customer-support-assistant.md)
+walks one project — a customer-support assistant — from a vague ask all the way
+to deployed and then *debugged in production*. It's the shape of what you're
+about to build; read it before you start.
+
 ## Non-negotiables
 
 - **Real data** — a messy corpus or workflow, not a toy dataset.

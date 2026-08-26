@@ -292,8 +292,12 @@ not three variations of RAG-QA:
 Likely home: `docs/case-studies/` (reading, not exercises), linked from the
 capstone as worked exemplars. Each cross-links back to the sections it composes.
 
-**Locked into backlog (build later, user picked A+C+D):**
-- **A — Customer-support assistant, scoping → deployed** (flagship). Build angle;
+**Status:** A BUILT (2026-08-26) as `docs/case-studies/A-customer-support-assistant.md`
++ a `docs/case-studies/README.md` index; linked from the main README and the
+capstone ("see it done first"). C and D still backlog. All 19 cross-links verified.
+
+**Locked into backlog (user picked A+C+D):**
+- **A — Customer-support assistant, scoping → deployed** (flagship, DONE). Build angle;
   RAG + agent. Threads 11 scoping → 03 RAG → 02/04 evals → 05 agent (order
   lookup) → 07 injection defense (tickets are an attack surface) → 09 serving →
   08 observability → 11 demo. **Ends with a "two weeks later, answer quality

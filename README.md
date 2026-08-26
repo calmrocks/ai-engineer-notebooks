@@ -155,6 +155,15 @@ Running locally instead: `pip install -r requirements.txt && pip install -e .`
 (the second installs the `aien` setup helper), `export GROQ_API_KEY=...`,
 open with Jupyter.
 
+## Case studies
+
+The notebooks teach one skill at a time; the [case studies](docs/case-studies/)
+take **one realistic scenario end to end** and show how the skills combine under
+real constraints — a fuzzy customer ask, a budget, an SLA, and the thing breaking
+after launch. Reading, not exercises; a good warm-up before the capstone.
+
+- [A — Customer-support assistant, scoping to deployed (and the 2am page)](docs/case-studies/A-customer-support-assistant.md) — a build-to-debug arc across sections 02–11
+
 ## Related reading
 
 - [Plan: Transitioning to FDE / AI Engineer](https://www.calm.rocks/resources/career-development/transition-fde-ai-engineer/) — the roadmap these notebooks implement
