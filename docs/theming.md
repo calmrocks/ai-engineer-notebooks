@@ -51,6 +51,36 @@ site hexes — it renders in both viewers but puts raw HTML in the cells. We cho
 When the notebooks are hosted as HTML (below), the emoji-labelled blockquotes
 can be upgraded to the site's real colored callouts via `global.css`.
 
+## Diagrams — code-fenced box-art, NOT Mermaid
+
+Same trap as `[!NOTE]`, same reason. **Mermaid does not render in either target
+viewer:** GitHub's `.ipynb` renderer is not its markdown-file renderer (Mermaid
+works in `.md`/issues/PRs, *not* in a rendered notebook), and Colab has never
+rendered Mermaid in a markdown cell. A ```` ```mermaid ```` block shows as **raw
+source in both** — strictly worse than plain text. So we don't use it.
+
+What renders as a real diagram, statically, in *both* Colab and GitHub:
+
+- ✅ **ASCII / Unicode box-art in a fenced block** — the default. Zero
+  dependencies, editable as text, diffs cleanly. Box-drawing glyphs
+  (`┌ │ └ ─ ▶ ·`) are fine — they render width-1 in the monospace font both
+  viewers use for code fences (this is the repo's existing idiom).
+- ✅ **A committed image** (`![](…/foo.svg)`) or a **`mermaid.ink` image URL** —
+  portable, but adds an asset / external dependency and stops being editable in
+  place. Reach for these only when box-art genuinely can't express the shape.
+
+Rules for box-art:
+- **Align to a fixed interior width.** Pad every interior line to the same width
+  so both walls and all four corners land on the same columns. Generate it with
+  a tiny script rather than eyeballing — see how `05/06-harness-engineering` was
+  built. Verify the left/right border columns match on *every* line, corners
+  included.
+- **Avoid ambiguous-width glyphs** where alignment matters — circled digits
+  (`①②③`) and many emoji can render 2-wide and silently break the grid. Prefer
+  `(1) (2) (3)`. Box-drawing and arrow glyphs are safe.
+- If a diagram ever looks misaligned in Colab specifically, fall back to the
+  **pure-ASCII** variant (`+---+`, `-->`, `[1]`) — zero ambiguous-width glyphs.
+
 ## Content structure — the walkthrough shape
 
 Mirror the site's walkthrough progression so a reader always knows where they are:
