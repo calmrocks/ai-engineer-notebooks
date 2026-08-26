@@ -14,7 +14,7 @@ framework-free, on the **free Groq API**. Hands-on companion to the
 Shared `aien` package (repo root) handles setup; one shared RFC corpus runs
 through RAG + evals so evals measure the retrieval you actually built.
 
-## Current structure (11 sections)
+## Current structure (13 sections)
 
 ```
 00 Setup            environment, keys, cost hygiene, spend guard
@@ -22,12 +22,14 @@ through RAG + evals so evals measure the retrieval you actually built.
 02 Evals I          NEW — "measure before you tune" on the 01 extraction task (no RAG dep)
 03 RAG              what-is-rag → embeddings → hybrid/rerank → chunking → why-rag-fails
 04 Evals II         golden sets, LLM-as-judge, regression-as-CI (coupled to RAG)
-05 Agents           loop from scratch, tool design, guardrails/budgets, MCP (concept)
+05 Agents           loop from scratch, tool design, guardrails/budgets, MCP, skills, harness engineering
 06 Adaptation       fine-tune vs RAG vs prompt; LoRA/QLoRA; optional GPU LoRA appendix
 07 Security         prompt injection (direct+indirect), OWASP LLM Top 10, trust boundary
-08 Operations       observability/LLMOps; reliability/fallbacks
-09 Customer craft   NEW — scoping/discovery, scoping-doc template, demo discipline
-10 Capstone         deployed project brief (not a notebook)
+08 Operations       observability/LLMOps; reliability/fallbacks; experiment tracking & registry (MLflow)
+09 Serving & perf   NEW — serving frameworks (vLLM/TGI/Triton/TensorRT-LLM); inference performance; concept + GPU appendix
+10 ML system design NEW — designing an inference service (QPS/VRAM/latency/cost, scaling, SLAs); concept, no code
+11 Customer craft   scoping/discovery, scoping-doc template, demo discipline (was 09)
+12 Capstone         deployed project brief (not a notebook) (was 10)
 ```
 
 RAG internal order is deliberate (**retrieval before chunking**): you can't
@@ -35,6 +37,50 @@ judge a chunking strategy until you've seen retrieval succeed/fail on it, and
 an RFC (~40k tokens) can't be embedded whole (model window ~256 tokens) — so
 chunking's *necessity* is shown in 03/embeddings, its *craft* deferred to
 03/chunking.
+
+## AI-systems track added (2026-08-25) — sections 09 & 10, 08/03
+
+Driven by a goal shift: package a resume-ready **AI distributed-systems /
+application** internship experience — modern stack (RAG+LLM, LangChain,
+vLLM/Triton/TensorRT, MLflow, LoRA), *use frameworks* rather than implement from
+scratch, with **ML system design + performance** added; student is not on an
+algorithms track, so no modeling depth.
+
+Tension resolved by **layering, not reversing** the framework-free rule (which
+still governs the teaching notebooks 00–08, and is itself the strongest
+interview answer: "hand-wrote the loop to understand it, *then* reached for the
+framework knowing what it buys"):
+
+- **08/03 Experiment tracking & registry (MLflow)** — runnable; logs the
+  section-04 eval harness's runs/params/metrics, registers + stage-promotes a
+  model. Turns "I ran an eval" into a tracked workflow. [candidate 4]
+- **09 Serving & inference performance** — NEW section. 09/01 *Serving
+  frameworks* (vLLM/TGI/Triton/TensorRT-LLM — what each optimizes, maps onto the
+  OpenAI-compatible seam, when to pick which); 09/02 *Inference performance*
+  (continuous batching, KV cache, quantization, throughput-vs-latency, sizing
+  math). Concept-first + **optional fenced Colab-T4 vLLM appendix** (same fence
+  discipline as the 06 LoRA appendix — Groq is inference-only, can't self-host).
+  [candidate 1]
+- **10 ML system design & performance** — NEW section. 10/01 *Designing an
+  inference service* — the ML-system-design interview worked end to end
+  (QPS/VRAM/latency/cost estimation, replica scaling, queueing, caching, SLAs).
+  Concept, no runnable code (fence like 05/04 MCP). [candidate 2]
+- **Framework-bridge concept beats** (candidate 3) — appended to existing
+  notebooks (RAG→03, agents→05) rather than a standalone section, continuing the
+  repo's established "what frameworks add" pattern (04/03, 05/01). *Not yet
+  built as of this entry.*
+- Candidates 5–7 (Agile/Scrum role-play doc, capstone rewrite for the framework
+  stack, interview-acceptance rubric) deferred by user — **5 & 7 dropped, 6
+  (capstone rewrite) still wanted** but not in this batch.
+
+Renumbering: Customer craft 09→**11**, Capstone 10→**12** (only 3 refs updated —
+README ×2 + the moved notebook's own badge; no other cross-links pointed at
+them). New sections slot in after Operations because serving/perf/design are
+"make it real" concerns, same rationale that put security/ops late.
+
+Build status (2026-08-25): skeleton + **09/01 built and validated** (14 cells,
+compiles, links resolve except the forward ref to 10/01). Still to build: 09/02,
+10/01, 08/03, the framework-bridge beats, capstone rewrite.
 
 ## Research consulted
 

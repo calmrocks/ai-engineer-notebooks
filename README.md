@@ -10,9 +10,10 @@ models, no credit card required), so you can work through the whole thing
 without a paid account. The patterns — tool calling, structured output,
 streaming, the agent loop — use the OpenAI-compatible interface Groq exposes,
 which transfers directly to OpenAI and (with small shape changes) to
-Anthropic. (One exception: the optional LoRA fine-tuning appendix in section
-06 needs a free Colab GPU runtime and a training stack, since Groq is
-inference-only — it's clearly fenced and skippable.)
+Anthropic. (Two topics Groq can't host — the LoRA fine-tuning appendix in
+section 06 and the self-hosted serving frameworks in section 09 — are taught
+concept-first, each with an optional, clearly fenced Colab-GPU appendix, since
+Groq is inference-only.)
 
 Built as the hands-on companion to
 [Plan: Transitioning to Forward Deployed Engineer / AI Engineer](https://www.calm.rocks/resources/career-development/transition-fde-ai-engineer/).
@@ -98,16 +99,34 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 |---|---|
 | [Observability & LLMOps](08-operations/01-observability-and-llmops.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/01-observability-and-llmops.ipynb) | Tracing every call, safe prompt logging, cost/latency/error metrics, drift detection, and the observe→eval feedback loop |
 | [Reliability & fallbacks](08-operations/02-reliability-and-fallbacks.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/02-reliability-and-fallbacks.ipynb) | Retries with backoff, timeouts, fallback models, output validation, circuit breakers, graceful degradation |
+| [Experiment tracking & registry](08-operations/03-experiment-tracking-and-registry.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/03-experiment-tracking-and-registry.ipynb) | MLflow end to end: log runs/params/metrics from the section-04 eval harness, register and version a model, and promote by stage — the tooling that turns "I ran an eval" into a tracked, reproducible workflow |
 
-### 09 — Customer craft (the FDE differentiator)
+### 09 — Serving & inference performance
+
+Where the free Groq API can't run the topic (these frameworks need a GPU),
+the notebook teaches it **concept-first** and fences an optional Colab-GPU
+appendix — the same pattern as the section-06 LoRA appendix.
 
 | Notebook | What you'll learn |
 |---|---|
-| [Scoping & discovery](09-customer-craft/01-scoping-and-discovery.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/09-customer-craft/01-scoping-and-discovery.ipynb) | Turn a vague customer ask into a scoped, evaluable system: discovery questions, a one-page scoping doc, the demo discipline — the customer-scenario interview round most engineers can't evidence |
+| [Serving frameworks](09-serving-inference/01-serving-frameworks.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/09-serving-inference/01-serving-frameworks.ipynb) | The serving stack an AI engineer actually picks between — vLLM, TGI, Triton, TensorRT-LLM — what each optimizes, how they map onto the raw API you've been calling, and when to reach for which |
+| [Inference performance](09-serving-inference/02-inference-performance.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/09-serving-inference/02-inference-performance.ipynb) | The levers behind throughput and latency: continuous batching, the KV cache, quantization, and the throughput-vs-latency trade — with the napkin math to size a deployment |
 
-### 10 — Capstone
+### 10 — ML system design & performance
 
-Not a notebook. [The brief](10-capstone/README.md) for the deployed
+| Notebook | What you'll learn |
+|---|---|
+| [Designing an inference service](10-ml-system-design/01-designing-an-inference-service.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/10-ml-system-design/01-designing-an-inference-service.ipynb) | Concept: the ML system design interview, worked end to end — QPS/VRAM/latency/cost estimation, replica scaling, queueing, caching, and the SLA trade-offs, on a realistic LLM-serving prompt |
+
+### 11 — Customer craft (the FDE differentiator)
+
+| Notebook | What you'll learn |
+|---|---|
+| [Scoping & discovery](11-customer-craft/01-scoping-and-discovery.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/11-customer-craft/01-scoping-and-discovery.ipynb) | Turn a vague customer ask into a scoped, evaluable system: discovery questions, a one-page scoping doc, the demo discipline — the customer-scenario interview round most engineers can't evidence |
+
+### 12 — Capstone
+
+Not a notebook. [The brief](12-capstone/README.md) for the deployed
 project that goes on your resume — built as a real repo with a serving
 component and an eval report. Notebooks are for learning; the capstone is
 for hiring.
