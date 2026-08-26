@@ -92,6 +92,19 @@ code cell compiles; badge URLs match paths; all internal cross-links + README
 links resolve; no residual 09-customer-craft/10-capstone refs. Renumbering
 verified clean.
 
+09/01 vLLM appendix HARDENED (2026-08-26) after a real Colab-T4 run surfaced
+three real serving-stack failures — now handled in the notebook itself: (1)
+vLLM upgrades torch → Colab's stale `torchaudio` has a mismatched CUDA version
+and crashes the server at import (transformers imports it unconditionally); fix
+= uninstall torchaudio. (2) A leftover EngineCore from a failed attempt holds
+the whole GPU → "Free memory … less than desired GPU memory utilization"; fix =
+kill stale procs / restart runtime + `--gpu-memory-utilization 0.85`. (3) Server
+launched with logs to DEVNULL → blind timeouts; fix = log to a file + print the
+tail on exit, `--enforce-eager`. Added an explicit cleanup cell (`server`
+terminate + pkill + nvidia-smi). Confirmed end-to-end: TinyLlama served on a T4,
+same OpenAI client returned a completion. These gotchas are framed as the
+section-09 lesson (self-hosting = dependency + resource management), not hidden.
+
 Renumbering: Customer craft 09→**11**, Capstone 10→**12** (only 3 refs updated —
 README ×2 + the moved notebook's own badge; no other cross-links pointed at
 them). New sections slot in after Operations because serving/perf/design are
