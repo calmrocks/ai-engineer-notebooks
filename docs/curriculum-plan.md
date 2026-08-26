@@ -78,9 +78,19 @@ framework knowing what it buys"):
 
 **AI-systems track build: COMPLETE** (2026-08-25). Shipped: 08/03 (MLflow, ran
 green on 3.1.4), 09/01 + 09/02 (serving + perf, concept + GPU appendix), 10/01
-(system design, concept), framework-bridge cells in 03/04 + 05/06. Only
-remaining wanted item is the **capstone (12) rewrite** for the framework stack +
-role narrative — not yet started.
+(system design, concept), framework-bridge cells in 03/04 + 05/06, and the
+**capstone (12) rewrite** — added a "use the modern stack" table (LangChain/
+LlamaIndex/LangGraph, vLLM/TGI, LoRA, MLflow) mapped to teaching sections, a
+systems-thinking section (09–10 sizing/perf numbers), reliability/cost, and a
+**team/Agile-Scrum + roles** section (PM/EM/AIML/Platform/SRE/QA role table,
+mentor role-play, resume process+impact bullet, interview-readiness checklist).
+This delivers candidate 6 and the original goal's role-narrative ask. Candidates
+5 & 7 remain dropped. **No open work on this track.**
+
+Full-repo check after the track (2026-08-25): all 30 notebooks parse + every
+code cell compiles; badge URLs match paths; all internal cross-links + README
+links resolve; no residual 09-customer-craft/10-capstone refs. Renumbering
+verified clean.
 
 Renumbering: Customer craft 09→**11**, Capstone 10→**12** (only 3 refs updated —
 README ×2 + the moved notebook's own badge; no other cross-links pointed at
