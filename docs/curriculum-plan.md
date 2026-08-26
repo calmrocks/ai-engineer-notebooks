@@ -116,6 +116,27 @@ the still-pending end-to-end Colab execution pass (see caveats).
   (ladders, checklists, "when a pipeline beats an agent", diagnosis cards) and
   were left as-is to avoid redundancy.
 
+## Harness-engineering notebook added (2026-08-25)
+
+- New **05/06-harness-engineering** (runnable — reuses section 01's FS/tools/loop
+  on Groq). Names the third axis alongside prompt-engineering (the message) and
+  model-adaptation (the weights): **harness engineering = the scaffold around the
+  call**. Framed as a *synthesis* closer — an explicit table reframes 01–05 as
+  harness components (loop / tool-input / bounds / external-tools / packaged
+  know-how), then teaches the three levers the section left implicit: **(1)
+  context assembly & compaction** (window = per-turn budget you rebuild; keep
+  task+recent+commitments, summarize the middle), **(2) tool-result shaping** (the
+  *return* side of nb-02: truncate blobs head+tail, make errors actionable — wired
+  via a `shape_result` seam added to the compact loop), **(3) verification loops**
+  (harness computes ground truth in code and loops on failure — nb-03's
+  trajectory-eval pointed at the output). Closes with an ASCII harness diagram
+  ("model is fixed; everything else is code you own") and the rule *fix the
+  harness before reaching for a bigger model / fine-tune (§06)*. Does NOT reopen
+  decision #3: single-agent context/scaffold engineering, not orchestration.
+  README + best-practices 05 table + this log updated; all internal links
+  verified. Static-only per standing caveat (not executed — no key here); the new
+  verification-loop cell makes real model calls, so flag it in the Colab pass.
+
 ## Skills notebook added (2026-08-23)
 
 - New **05/05-skills-and-progressive-disclosure** (concept-only, no runnable code

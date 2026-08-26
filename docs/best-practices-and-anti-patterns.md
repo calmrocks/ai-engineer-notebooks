@@ -69,6 +69,10 @@ the fastest way to remember the rule. Each section links to where it's taught.
 | Write the skill **`description`** for the model — what it does *and when to use it* | Vague description, then wonder why the skill never triggers |
 | Push fragile logic into a bundled, validated **script** (only its output costs context) | Make the model re-derive the same brittle procedure in-context each time |
 | Treat installed skills as trusted code; review third-party ones (see 07) | Install a public skill and assume its body/scripts are safe |
+| Treat the context window as a per-turn budget you rebuild; compact long transcripts (keep task + recent turns + commitments) | Assume the model "remembers"; let the transcript grow unbounded until it blows the window and the bill |
+| Shape every tool result before it re-enters context — cap size (head+tail), make errors actionable | Feed raw blobs / bare stack traces back and re-send them every turn |
+| Verify output in code and loop on failure (bounded); compute ground truth in the harness | Trust the model's own "done"; ship the first right-looking answer |
+| When flaky, fix the harness first (context, results, checks, bounds) | Reach for a bigger model or a fine-tune before the scaffold is right |
 
 ## 06 — Adapting the model
 
