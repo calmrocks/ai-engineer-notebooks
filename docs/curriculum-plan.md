@@ -280,13 +280,51 @@ literal text on both). Convention in `docs/theming.md`:
   for clean source) or the deferred HTML-hosting route (the only path to the
   walkthrough teal).
 
+## Case-study backlog (planned 2026-08-26, not built yet)
+
+Add end-to-end **case studies** — worked real-world narratives (concept-forward,
+like 10/01), organized on TWO axes so they cover different *application types*,
+not three variations of RAG-QA:
+- **Axis 1 — use case** (customer support, document processing, security/eval, …)
+- **Axis 2 — application type / technique** (RAG+agent build, pipeline decision,
+  adversarial benchmark harness, classifier, semantic recommender, …)
+
+Likely home: `docs/case-studies/` (reading, not exercises), linked from the
+capstone as worked exemplars. Each cross-links back to the sections it composes.
+
+**Locked into backlog (build later, user picked A+C+D):**
+- **A — Customer-support assistant, scoping → deployed** (flagship). Build angle;
+  RAG + agent. Threads 11 scoping → 03 RAG → 02/04 evals → 05 agent (order
+  lookup) → 07 injection defense (tickets are an attack surface) → 09 serving →
+  08 observability → 11 demo. **Ends with a "two weeks later, answer quality
+  collapsed — diagnose it" act** (the old "3am incident" idea folded in as A's
+  final scene, using 08 tracing + 04 regression eval): covers build→debug in one
+  arc. The living exemplar for the capstone.
+- **C — Contract extraction: pipeline vs agent** (decision angle, lighter). The
+  interview judgment call: the tempting agent vs the correct pipeline when steps
+  are known; argue it with eval + cost numbers. Completes 05's
+  "pipeline-beats-agent" thesis as a full worked case.
+- **D — Red-team robustness benchmark** (adversarial harness / benchmark — a NEW
+  application type for the repo: build a harness to *evaluate/attack* models, not
+  serve one). Generalized from the user's real résumé project (a PAIR-loop
+  jailbreaker: attack model → target → Llama-Guard judge, ~68% ASR). Composes 05
+  loop + 04 LLM-as-judge + 07 security + 02 evals (ASR metric). Runnable on Groq
+  (attack/target/judge all have Groq models incl. Llama Guard).
+
+**Considered, deferred (E/F):** E — AI-generated-text / clickbait detection (LLM
+classifier + eval; text version is on-thesis, image detection is multimodal =
+off-thesis). F — semantic recommender + explanation (embedding retrieval + LLM
+rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
+
 ## Standing caveats
 
-- **Notebooks are verified statically only** (JSON structure, code compiles,
-  badges/cross-refs consistent) — they have NOT been executed here (no API key,
-  no GPU). Before treating any as final, run top-to-bottom in Colab. Highest
-  risk: 06 LoRA appendix (peft/trl API drift), 08 reliability (groq typed
-  exceptions), the live-call notebooks (02 evals harness, 09 role-play).
+- **Most notebooks verified statically only** (JSON structure, code compiles,
+  badges/cross-refs consistent) — not executed here (no API key). Before treating
+  any as final, run top-to-bottom in Colab. **Exceptions now verified live on a
+  Colab T4 (2026-08-26): 06 LoRA appendix and 09/01+09/02 vLLM appendices** — see
+  the [[colab-gpu-vllm-gotchas]] memory for the fixes applied. 08/03 MLflow ran
+  green locally. Remaining highest risk: the live-call key-path notebooks (00–05,
+  07, 08/01-02, 11) never executed end-to-end.
 - **Models:** repo uses `openai/gpt-oss-120b` / `-20b` (current Groq production).
   Re-verify against Groq's model list if calls 404.
 - **Colab has no repo checkout** → notebooks install `aien` via
