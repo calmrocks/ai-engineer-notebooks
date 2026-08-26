@@ -65,13 +65,22 @@ framework knowing what it buys"):
   inference service* — the ML-system-design interview worked end to end
   (QPS/VRAM/latency/cost estimation, replica scaling, queueing, caching, SLAs).
   Concept, no runnable code (fence like 05/04 MCP). [candidate 2]
-- **Framework-bridge concept beats** (candidate 3) — appended to existing
-  notebooks (RAG→03, agents→05) rather than a standalone section, continuing the
-  repo's established "what frameworks add" pattern (04/03, 05/01). *Not yet
-  built as of this entry.*
+- **Framework-bridge concept beats** (candidate 3) — DONE. A "Where the
+  frameworks come in" markdown cell appended before Exercises in **03/04**
+  (LangChain & LlamaIndex — RAG is a pattern not a library; every 03 failure mode
+  happens inside the framework too) and **05/06** (LangChain & LangGraph — the
+  AgentExecutor/state-graph IS the loop you hand-built; LangGraph = persist the
+  harness). Continues the repo's "what frameworks add" pattern (04/03, 05/01);
+  gives resume keywords without reversing framework-free. No new notebooks.
 - Candidates 5–7 (Agile/Scrum role-play doc, capstone rewrite for the framework
   stack, interview-acceptance rubric) deferred by user — **5 & 7 dropped, 6
   (capstone rewrite) still wanted** but not in this batch.
+
+**AI-systems track build: COMPLETE** (2026-08-25). Shipped: 08/03 (MLflow, ran
+green on 3.1.4), 09/01 + 09/02 (serving + perf, concept + GPU appendix), 10/01
+(system design, concept), framework-bridge cells in 03/04 + 05/06. Only
+remaining wanted item is the **capstone (12) rewrite** for the framework stack +
+role narrative — not yet started.
 
 Renumbering: Customer craft 09→**11**, Capstone 10→**12** (only 3 refs updated —
 README ×2 + the moved notebook's own badge; no other cross-links pointed at
