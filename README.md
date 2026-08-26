@@ -33,77 +33,77 @@ dependencies, reads API keys from Colab secrets) and ends with exercises.
 
 | Notebook | What you'll learn |
 |---|---|
-| [Environment & cost hygiene](00-setup/00-environment.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/00-setup/00-environment.ipynb) | API keys via Colab secrets, spend guards, model picking |
+| [Environment & cost hygiene](00-setup/00-environment.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/00-setup/00-environment.ipynb) | API keys via Colab secrets, spend guards, model picking |
 
 ### 01 — Model APIs
 
 | Notebook | What you'll learn |
 |---|---|
-| [Prompting fundamentals](01-model-apis/00-prompting-basics.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/00-prompting-basics.ipynb) | Clear instructions, few-shot, output-format specs, step-by-step reasoning — the cheapest lever, each shown moving a number |
-| [Structured output](01-model-apis/01-structured-output.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/01-structured-output.ipynb) | Getting reliable JSON out of a model, and where it breaks |
-| [Tool calling](01-model-apis/02-tool-calling.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/02-tool-calling.ipynb) | Function/tool calling end to end, error paths included |
-| [Streaming](01-model-apis/03-streaming.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/03-streaming.ipynb) | Streaming responses and what UIs need from them |
-| [Context & caching](01-model-apis/04-context-and-caching.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/04-context-and-caching.ipynb) | Context-window budgeting, prompt caching, batch vs real-time pricing |
+| [Prompting fundamentals](01-model-apis/00-prompting-basics.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/00-prompting-basics.ipynb) | Clear instructions, few-shot, output-format specs, step-by-step reasoning — the cheapest lever, each shown moving a number |
+| [Structured output](01-model-apis/01-structured-output.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/01-structured-output.ipynb) | Getting reliable JSON out of a model, and where it breaks |
+| [Tool calling](01-model-apis/02-tool-calling.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/02-tool-calling.ipynb) | Function/tool calling end to end, error paths included |
+| [Streaming](01-model-apis/03-streaming.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/03-streaming.ipynb) | Streaming responses and what UIs need from them |
+| [Context & caching](01-model-apis/04-context-and-caching.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/01-model-apis/04-context-and-caching.ipynb) | Context-window budgeting, prompt caching, batch vs real-time pricing |
 
 ### 02 — Evals I: measuring outputs
 
 | Notebook | What you'll learn |
 |---|---|
-| [Measuring outputs](02-evals-basics/01-measuring-outputs.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/02-evals-basics/01-measuring-outputs.ipynb) | Golden sets and metrics on the section-01 task — install the "measure before you tune" habit *before* building anything you'd need to tune. Evals is the spine; it returns in every section after this |
+| [Measuring outputs](02-evals-basics/01-measuring-outputs.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/02-evals-basics/01-measuring-outputs.ipynb) | Golden sets and metrics on the section-01 task — install the "measure before you tune" habit *before* building anything you'd need to tune. Evals is the spine; it returns in every section after this |
 
 ### 03 — RAG
 
 | Notebook | What you'll learn |
 |---|---|
-| [What is RAG?](03-rag/00-what-is-rag.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/00-what-is-rag.ipynb) | The retrieve → augment → generate loop, why RAG beats a plain LLM, and why RAG isn't the same as embeddings — with a 15-line working demo |
-| [Embeddings & retrieval](03-rag/01-embeddings-retrieval.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/01-embeddings-retrieval.ipynb) | Embedding choice, vector search, similarity pitfalls — get retrieval working first |
-| [Hybrid & reranking](03-rag/02-hybrid-and-reranking.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/02-hybrid-and-reranking.ipynb) | Keyword + vector hybrid retrieval, rerankers, when each earns its cost |
-| [Chunking](03-rag/03-chunking.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/03-chunking.ipynb) | Chunking strategies on a real messy corpus — revisited last, once you can judge them against retrieval |
-| [Why RAG fails](03-rag/04-why-rag-fails.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/04-why-rag-fails.ipynb) | Diagnosing bad answers: retrieval quality, not generation, is usually the bottleneck |
+| [What is RAG?](03-rag/00-what-is-rag.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/00-what-is-rag.ipynb) | The retrieve → augment → generate loop, why RAG beats a plain LLM, and why RAG isn't the same as embeddings — with a 15-line working demo |
+| [Embeddings & retrieval](03-rag/01-embeddings-retrieval.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/01-embeddings-retrieval.ipynb) | Embedding choice, vector search, similarity pitfalls — get retrieval working first |
+| [Hybrid & reranking](03-rag/02-hybrid-and-reranking.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/02-hybrid-and-reranking.ipynb) | Keyword + vector hybrid retrieval, rerankers, when each earns its cost |
+| [Chunking](03-rag/03-chunking.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/03-chunking.ipynb) | Chunking strategies on a real messy corpus — revisited last, once you can judge them against retrieval |
+| [Why RAG fails](03-rag/04-why-rag-fails.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/03-rag/04-why-rag-fails.ipynb) | Diagnosing bad answers: retrieval quality, not generation, is usually the bottleneck |
 
 ### 04 — Evals II: the differentiator
 
 | Notebook | What you'll learn |
 |---|---|
-| [Golden sets](04-evals/01-golden-sets.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-evals/01-golden-sets.ipynb) | Building a golden set for the RAG system from section 03 |
-| [LLM as judge](04-evals/02-llm-as-judge.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-evals/02-llm-as-judge.ipynb) | Judge prompts, agreement with humans, and the judge's own failure modes |
-| [Regression evals](04-evals/03-regression-evals.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-evals/03-regression-evals.ipynb) | Evals as CI: catching quality regressions when you change a prompt or model |
+| [Golden sets](04-evals/01-golden-sets.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-evals/01-golden-sets.ipynb) | Building a golden set for the RAG system from section 03 |
+| [LLM as judge](04-evals/02-llm-as-judge.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-evals/02-llm-as-judge.ipynb) | Judge prompts, agreement with humans, and the judge's own failure modes |
+| [Regression evals](04-evals/03-regression-evals.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/04-evals/03-regression-evals.ipynb) | Evals as CI: catching quality regressions when you change a prompt or model |
 
 ### 05 — Agents
 
 | Notebook | What you'll learn |
 |---|---|
-| [Agent loop from scratch](05-agents/01-agent-loop-from-scratch.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/01-agent-loop-from-scratch.ipynb) | A working agent loop in raw API calls — no framework |
-| [Tool design](05-agents/02-tool-design.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/02-tool-design.ipynb) | Designing tools the model can actually use well |
-| [Guardrails & budgets](05-agents/03-guardrails-and-budgets.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/03-guardrails-and-budgets.ipynb) | Stopping conditions, cost/latency budgets, when a pipeline beats an agent |
-| [MCP & the tool ecosystem](05-agents/04-mcp-and-the-tool-ecosystem.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/04-mcp-and-the-tool-ecosystem.ipynb) | Concept: what the Model Context Protocol standardizes, how it maps to the raw tool loop, and when to reach for it |
-| [Skills & progressive disclosure](05-agents/05-skills-and-progressive-disclosure.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/05-skills-and-progressive-disclosure.ipynb) | Concept: packaging reusable know-how an agent loads on demand — the `SKILL.md` pattern, the context-budget payoff, and Tools/MCP/Skills as one story |
-| [Harness engineering](05-agents/06-harness-engineering.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/06-harness-engineering.ipynb) | Synthesis: the scaffold *around* the call — context assembly & compaction, tool-result shaping, and verification loops. Names the discipline the section has been teaching piece by piece |
+| [Agent loop from scratch](05-agents/01-agent-loop-from-scratch.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/01-agent-loop-from-scratch.ipynb) | A working agent loop in raw API calls — no framework |
+| [Tool design](05-agents/02-tool-design.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/02-tool-design.ipynb) | Designing tools the model can actually use well |
+| [Guardrails & budgets](05-agents/03-guardrails-and-budgets.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/03-guardrails-and-budgets.ipynb) | Stopping conditions, cost/latency budgets, when a pipeline beats an agent |
+| [MCP & the tool ecosystem](05-agents/04-mcp-and-the-tool-ecosystem.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/04-mcp-and-the-tool-ecosystem.ipynb) | Concept: what the Model Context Protocol standardizes, how it maps to the raw tool loop, and when to reach for it |
+| [Skills & progressive disclosure](05-agents/05-skills-and-progressive-disclosure.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/05-skills-and-progressive-disclosure.ipynb) | Concept: packaging reusable know-how an agent loads on demand — the `SKILL.md` pattern, the context-budget payoff, and Tools/MCP/Skills as one story |
+| [Harness engineering](05-agents/06-harness-engineering.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/05-agents/06-harness-engineering.ipynb) | Synthesis: the scaffold *around* the call — context assembly & compaction, tool-result shaping, and verification loops. Names the discipline the section has been teaching piece by piece |
 
 ### 06 — Adapting the model
 
 | Notebook | What you'll learn |
 |---|---|
-| [Fine-tune vs RAG vs prompt](06-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/06-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) | When to change the model's weights vs its inputs; what LoRA/QLoRA are and cost; the argument you'll have in the room — plus an optional real LoRA fine-tune on a free GPU |
+| [Fine-tune vs RAG vs prompt](06-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/06-adaptation/01-fine-tune-vs-rag-vs-prompt.ipynb) | When to change the model's weights vs its inputs; what LoRA/QLoRA are and cost; the argument you'll have in the room — plus an optional real LoRA fine-tune on a free GPU |
 
 ### 07 — Security
 
 | Notebook | What you'll learn |
 |---|---|
-| [Prompt injection & the trust boundary](07-security/01-prompt-injection-and-trust.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/07-security/01-prompt-injection-and-trust.ipynb) | Direct & indirect prompt injection, output handling, PII, excessive agency — the OWASP LLM Top 10 risks, failing live then defended |
+| [Prompt injection & the trust boundary](07-security/01-prompt-injection-and-trust.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/07-security/01-prompt-injection-and-trust.ipynb) | Direct & indirect prompt injection, output handling, PII, excessive agency — the OWASP LLM Top 10 risks, failing live then defended |
 
 ### 08 — Operations
 
 | Notebook | What you'll learn |
 |---|---|
-| [Observability & LLMOps](08-operations/01-observability-and-llmops.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/01-observability-and-llmops.ipynb) | Tracing every call, safe prompt logging, cost/latency/error metrics, drift detection, and the observe→eval feedback loop |
-| [Reliability & fallbacks](08-operations/02-reliability-and-fallbacks.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/02-reliability-and-fallbacks.ipynb) | Retries with backoff, timeouts, fallback models, output validation, circuit breakers, graceful degradation |
+| [Observability & LLMOps](08-operations/01-observability-and-llmops.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/01-observability-and-llmops.ipynb) | Tracing every call, safe prompt logging, cost/latency/error metrics, drift detection, and the observe→eval feedback loop |
+| [Reliability & fallbacks](08-operations/02-reliability-and-fallbacks.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/08-operations/02-reliability-and-fallbacks.ipynb) | Retries with backoff, timeouts, fallback models, output validation, circuit breakers, graceful degradation |
 
 ### 09 — Customer craft (the FDE differentiator)
 
 | Notebook | What you'll learn |
 |---|---|
-| [Scoping & discovery](09-customer-craft/01-scoping-and-discovery.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/09-customer-craft/01-scoping-and-discovery.ipynb) | Turn a vague customer ask into a scoped, evaluable system: discovery questions, a one-page scoping doc, the demo discipline — the customer-scenario interview round most engineers can't evidence |
+| [Scoping & discovery](09-customer-craft/01-scoping-and-discovery.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/09-customer-craft/01-scoping-and-discovery.ipynb) | Turn a vague customer ask into a scoped, evaluable system: discovery questions, a one-page scoping doc, the demo discipline — the customer-scenario interview round most engineers can't evidence |
 
 ### 10 — Capstone
 
