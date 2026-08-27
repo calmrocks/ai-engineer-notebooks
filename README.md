@@ -124,12 +124,19 @@ appendix — the same pattern as the section-06 LoRA appendix.
 |---|---|
 | [Scoping & discovery](11-customer-craft/01-scoping-and-discovery.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/11-customer-craft/01-scoping-and-discovery.ipynb) | Turn a vague customer ask into a scoped, evaluable system: discovery questions, a one-page scoping doc, the demo discipline — the customer-scenario interview round most engineers can't evidence |
 
-### 12 — Capstone
+### 12 — Case Studies & Capstone
 
-Not a notebook. [The brief](12-capstone/README.md) for the deployed
-project that goes on your resume — built as a real repo with a serving
-component and an eval report. Notebooks are for learning; the capstone is
-for hiring.
+Where the skills come together into projects. First a **case study** — one
+realistic scenario worked end to end, runnable — then the **capstone**, the
+deployed repo you build yourself. ([Section overview](12-case-studies-and-capstone/README.md).)
+
+| Notebook | What you'll learn |
+|---|---|
+| [Case study A — Customer-support assistant](12-case-studies-and-capstone/01-customer-support-assistant.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/01-customer-support-assistant.ipynb) | One scenario scoped → built → served → **debugged in production**: a vague ask becomes a deployed, evaluated RAG+agent assistant, then a live quality regression (a stale index after a corpus migration) that you diagnose and fix. A build-to-debug arc threading sections 02–11 |
+
+**Capstone:** [the brief](12-case-studies-and-capstone/CAPSTONE.md) for the deployed
+project that goes on your resume — a real repo with a serving component and an
+eval report. Case studies are for learning; the capstone is for hiring.
 
 ## Conventions
 
@@ -154,15 +161,6 @@ for hiring.
 Running locally instead: `pip install -r requirements.txt && pip install -e .`
 (the second installs the `aien` setup helper), `export GROQ_API_KEY=...`,
 open with Jupyter.
-
-## Case studies
-
-The notebooks teach one skill at a time; the [case studies](docs/case-studies/)
-take **one realistic scenario end to end** and show how the skills combine under
-real constraints — a fuzzy customer ask, a budget, an SLA, and the thing breaking
-after launch. Reading, not exercises; a good warm-up before the capstone.
-
-- [A — Customer-support assistant, scoping to deployed (and the 2am page)](docs/case-studies/A-customer-support-assistant.md) — a build-to-debug arc across sections 02–11
 
 ## Related reading
 

@@ -289,12 +289,24 @@ not three variations of RAG-QA:
 - **Axis 2 — application type / technique** (RAG+agent build, pipeline decision,
   adversarial benchmark harness, classifier, semantic recommender, …)
 
-Likely home: `docs/case-studies/` (reading, not exercises), linked from the
-capstone as worked exemplars. Each cross-links back to the sections it composes.
+Home decided (2026-08-26): section **12 renamed "Case Studies & Capstone"** (dir
+`12-case-studies-and-capstone/`). Cases and the capstone brief now live together
+— cases are the worked examples, the capstone is "now build your own." By case
+nature: **narrative-heavy full-stack cases could be docs, but per user request A
+is a RUNNABLE notebook**; self-contained cases (C, D) are runnable notebooks too.
+The capstone brief stays docs (`CAPSTONE.md`) — a notebook project signals
+"weekend hacker"; a case study can be a notebook because it's a worked example,
+the student's capstone must be a real deployed repo.
 
-**Status:** A BUILT (2026-08-26) as `docs/case-studies/A-customer-support-assistant.md`
-+ a `docs/case-studies/README.md` index; linked from the main README and the
-capstone ("see it done first"). C and D still backlog. All 19 cross-links verified.
+**Status:** A BUILT + RUNNABLE (2026-08-26) as
+`12-case-studies-and-capstone/01-customer-support-assistant.ipynb` (28 cells,
+needs a Groq key). Narrative preserved from the original draft, plus minimal
+runnable code per phase on a 6-article corpus + 5-question golden set — the
+Phase-8 regression is REAL: `index_corpus()` seam left stale after a corpus
+migration → eval score drops → re-index → recovers. Section `README.md` (cases
+then capstone) + `CAPSTONE.md` (renamed from the old capstone README). Old
+`docs/case-studies/` removed; drafts deleted. All links verified. Static-only
+here (no key) — run in Colab to confirm like 06/09. C and D still backlog.
 
 **Locked into backlog (user picked A+C+D):**
 - **A — Customer-support assistant, scoping → deployed** (flagship, DONE). Build angle;
