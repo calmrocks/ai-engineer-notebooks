@@ -1,5 +1,9 @@
 # AI Engineer Notebooks
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/00-setup/00-environment.ipynb)
+[![GitHub stars](https://img.shields.io/github/stars/calmrocks/ai-engineer-notebooks?style=social)](https://github.com/calmrocks/ai-engineer-notebooks/stargazers)
+
 **Learn the applied-LLM stack the way you'll actually be interviewed on it —
 framework-free, on a free API, from prompting all the way to serving, fine-tuning,
 and a red-team benchmark.**
