@@ -1,19 +1,33 @@
 # AI Engineer Notebooks
 
-Runnable Colab notebooks for learning the **AI Engineer / Forward Deployed
-Engineer (FDE)** skill set: building working systems on top of foundation
-models — model APIs, RAG, evals, agents, and when to adapt the model itself —
-using raw APIs, not frameworks.
+**Learn the applied-LLM stack the way you'll actually be interviewed on it —
+framework-free, on a free API, from prompting all the way to serving, fine-tuning,
+and a red-team benchmark.**
 
-Everything runs on the **free [Groq](https://console.groq.com/) API** (Llama
-models, no credit card required), so you can work through the whole thing
-without a paid account. The patterns — tool calling, structured output,
-streaming, the agent loop — use the OpenAI-compatible interface Groq exposes,
-which transfers directly to OpenAI and (with small shape changes) to
-Anthropic. (Two topics Groq can't host — the LoRA fine-tuning appendix in
-section 06 and the self-hosted serving frameworks in section 09 — are taught
-concept-first, each with an optional, clearly fenced Colab-GPU appendix, since
-Groq is inference-only.)
+Runnable Colab notebooks for the **AI Engineer / Forward Deployed Engineer (FDE)**
+skill set: building working systems on top of foundation models — model APIs, RAG,
+evals, agents, adaptation, serving — using raw APIs, not frameworks.
+
+### What makes this different
+
+- **Framework-free, on purpose.** You write the agent loop, RAG, and evals from
+  raw API calls first — so you understand what LangChain/LlamaIndex actually do
+  before you reach for them (and can judge when *not* to). Patterns are durable;
+  wrappers churn.
+- **Evals are the spine.** "Measure before you tune" is installed early and
+  returns in every section — the habit that separates an engineer who shipped a
+  system from one who built a demo.
+- **Free to run, end to end.** Everything runs on the **free
+  [Groq](https://console.groq.com/) API** (no credit card). The two topics Groq
+  can't host — LoRA fine-tuning (06) and self-hosted serving (09) — are
+  concept-first with optional, fenced Colab-GPU appendices, **verified on a real
+  Colab T4**.
+- **Real case studies, not toy demos.** Three end-to-end
+  [case studies](12-case-studies-and-capstone/) show the skills combined under
+  real constraints — a support assistant *debugged in production*, a
+  pipeline-vs-agent cost showdown, and a red-team robustness benchmark.
+- **OpenAI-compatible throughout**, so every pattern transfers directly to OpenAI
+  and (with small changes) Anthropic — the seam is swappable, the skills aren't.
 
 Built as the hands-on companion to
 [Plan: Transitioning to Forward Deployed Engineer / AI Engineer](https://www.calm.rocks/resources/career-development/transition-fde-ai-engineer/).
