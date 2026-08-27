@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Questions & show-and-tell
+    url: https://github.com/calmrocks/ai-engineer-notebooks/discussions
+    about: Stuck on a section, want to share what you built, or just have a question? Start a Discussion.
