@@ -15,8 +15,8 @@ you re-index.
 | Case | Use case | Application type | The angle it teaches |
 |---|---|---|---|
 | [01 — Customer-support assistant](01-customer-support-assistant.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/01-customer-support-assistant.ipynb) | Customer support | RAG + agent, **build → debug** | Scoping a fuzzy ask into a deployed, evaluated system — then diagnosing it when quality collapses after launch |
-| C — Contract extraction *(planned)* | Document processing | **Pipeline vs agent** | The judgment call: when a pipeline beats an agent, argued with eval + cost |
-| D — Red-team benchmark *(planned)* | Security / evaluation | **Adversarial harness** | Building a harness to *evaluate and attack* models, not serve one |
+| [02 — Contract extraction: pipeline vs agent](02-contract-extraction-pipeline-vs-agent.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/02-contract-extraction-pipeline-vs-agent.ipynb) | Document processing | **Pipeline vs agent** | The judgment call: build both on one task, prove with eval + token cost that a pipeline wins when the steps are known |
+| [03 — Red-team robustness benchmark](03-red-team-robustness-benchmark.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/03-red-team-robustness-benchmark.ipynb) | Security / evaluation | **Adversarial harness** | A different *kind* of system: attacker→target→judge PAIR loop that measures a model's robustness (ASR), not a service you serve |
 
 > **⭐ Key takeaway —** interviews and real work never hand you "implement a RAG
 > pipeline." They hand you "our support team is drowning — help." The gap between

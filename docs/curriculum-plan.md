@@ -306,7 +306,20 @@ Phase-8 regression is REAL: `index_corpus()` seam left stale after a corpus
 migration → eval score drops → re-index → recovers. Section `README.md` (cases
 then capstone) + `CAPSTONE.md` (renamed from the old capstone README). Old
 `docs/case-studies/` removed; drafts deleted. All links verified. Static-only
-here (no key) — run in Colab to confirm like 06/09. C and D still backlog.
+here (no key) — run in Colab to confirm like 06/09.
+
+**C and D BUILT + RUNNABLE (2026-08-26)** as `02-...pipeline-vs-agent.ipynb` and
+`03-red-team-robustness-benchmark.ipynb`. NOTE: case-study *letters* renumbered to
+match file order — A (customer support), **B = contract extraction pipeline-vs-agent**
+(was "C"), **C = red-team benchmark** (was "D"). B builds the same extraction task
+as both an agent and a pipeline and proves with accuracy + token count that the
+pipeline wins when steps are known (05/03's thesis, measured). C is a NEW system
+type — an attacker→target→judge PAIR loop reporting ASR (generalized from the
+user's résumé jailbreaker project); framed DEFENSIVELY on a harmless proxy task
+("never reveal a secret passphrase") — no real harmful content or transferable
+jailbreaks. All three cases now listed in section README + main README; all
+compile + links + badges verified. Case-study backlog COMPLETE (E/F still
+deferred). All static-only (need Groq key) — run in Colab to confirm.
 
 **Locked into backlog (user picked A+C+D):**
 - **A — Customer-support assistant, scoping → deployed** (flagship, DONE). Build angle;
