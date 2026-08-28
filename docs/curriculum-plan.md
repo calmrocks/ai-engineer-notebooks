@@ -1,6 +1,6 @@
 # Curriculum plan & design log
 
-Working notes on the structure of this repo — why the sections are what they
+Working notes on the structure of this repo: why the sections are what they
 are, what was researched, what was decided (and rejected), and what's still
 open. Kept so the reasoning survives even if the conversation context is lost.
 
@@ -34,14 +34,14 @@ through RAG + evals so evals measure the retrieval you actually built.
 
 RAG internal order is deliberate (**retrieval before chunking**): you can't
 judge a chunking strategy until you've seen retrieval succeed/fail on it, and
-an RFC (~40k tokens) can't be embedded whole (model window ~256 tokens) — so
+an RFC (~40k tokens) can't be embedded whole (model window ~256 tokens), so
 chunking's *necessity* is shown in 03/embeddings, its *craft* deferred to
 03/chunking.
 
-## AI-systems track added (2026-08-25) — sections 09 & 10, 08/03
+## AI-systems track added (2026-08-25): sections 09 & 10, 08/03
 
 Driven by a goal shift: package a resume-ready **AI distributed-systems /
-application** internship experience — modern stack (RAG+LLM, LangChain,
+application** internship experience: modern stack (RAG+LLM, LangChain,
 vLLM/Triton/TensorRT, MLflow, LoRA), *use frameworks* rather than implement from
 scratch, with **ML system design + performance** added; student is not on an
 algorithms track, so no modeling depth.
@@ -55,25 +55,25 @@ framework knowing what it buys"):
   section-04 eval harness's runs/params/metrics, registers + stage-promotes a
   model. Turns "I ran an eval" into a tracked workflow. [candidate 4]
 - **09 Serving & inference performance** — NEW section. 09/01 *Serving
-  frameworks* (vLLM/TGI/Triton/TensorRT-LLM — what each optimizes, maps onto the
+  frameworks* (vLLM/TGI/Triton/TensorRT-LLM: what each optimizes, maps onto the
   OpenAI-compatible seam, when to pick which); 09/02 *Inference performance*
   (continuous batching, KV cache, quantization, throughput-vs-latency, sizing
   math). Concept-first + **optional fenced Colab-T4 vLLM appendix** (same fence
-  discipline as the 06 LoRA appendix — Groq is inference-only, can't self-host).
+  discipline as the 06 LoRA appendix; Groq is inference-only, can't self-host).
   [candidate 1]
 - **10 ML system design & performance** — NEW section. 10/01 *Designing an
-  inference service* — the ML-system-design interview worked end to end
+  inference service*, the ML-system-design interview worked end to end
   (QPS/VRAM/latency/cost estimation, replica scaling, queueing, caching, SLAs).
   Concept, no runnable code (fence like 05/04 MCP). [candidate 2]
 - **Framework-bridge concept beats** (candidate 3) — DONE. A "Where the
   frameworks come in" markdown cell appended before Exercises in **03/04**
-  (LangChain & LlamaIndex — RAG is a pattern not a library; every 03 failure mode
-  happens inside the framework too) and **05/06** (LangChain & LangGraph — the
+  (LangChain & LlamaIndex: RAG is a pattern not a library; every 03 failure mode
+  happens inside the framework too) and **05/06** (LangChain & LangGraph, where the
   AgentExecutor/state-graph IS the loop you hand-built; LangGraph = persist the
   harness). Continues the repo's "what frameworks add" pattern (04/03, 05/01);
   gives resume keywords without reversing framework-free. No new notebooks.
 - Candidates 5–7 (Agile/Scrum role-play doc, capstone rewrite for the framework
-  stack, interview-acceptance rubric) deferred by user — **5 & 7 dropped, 6
+  stack, interview-acceptance rubric) deferred by user. **5 & 7 dropped, 6
   (capstone rewrite) still wanted** but not in this batch.
 
 **AI-systems track build: COMPLETE** (2026-08-25). Shipped: 08/03 (MLflow, ran
@@ -93,7 +93,7 @@ links resolve; no residual 09-customer-craft/10-capstone refs. Renumbering
 verified clean.
 
 09/01 vLLM appendix HARDENED (2026-08-26) after a real Colab-T4 run surfaced
-three real serving-stack failures — now handled in the notebook itself: (1)
+three real serving-stack failures, now handled in the notebook itself: (1)
 vLLM upgrades torch → Colab's stale `torchaudio` has a mismatched CUDA version
 and crashes the server at import (transformers imports it unconditionally); fix
 = uninstall torchaudio. (2) A leftover EngineCore from a failed attempt holds
@@ -105,7 +105,7 @@ terminate + pkill + nvidia-smi). Confirmed end-to-end: TinyLlama served on a T4,
 same OpenAI client returned a completion. These gotchas are framed as the
 section-09 lesson (self-hosting = dependency + resource management), not hidden.
 
-Renumbering: Customer craft 09→**11**, Capstone 10→**12** (only 3 refs updated —
+Renumbering: Customer craft 09→**11**, Capstone 10→**12** (only 3 refs updated:
 README ×2 + the moved notebook's own badge; no other cross-links pointed at
 them). New sections slot in after Operations because serving/perf/design are
 "make it real" concerns, same rationale that put security/ops late.
@@ -121,7 +121,7 @@ compiles, links resolve except the forward ref to 10/01). Still to build: 09/02,
   Cursor); folded into agents as concept-only (repo avoids frameworks).
 - **PEFT / LoRA / QLoRA** (HuggingFace) — mainstream, runs on free Colab T4.
 - **RAG canon** — Lewis et al. 2020, AWS, Pinecone, Prompting Guide. Settled
-  that RAG ≠ embeddings (retrieval is swappable: vector/BM25/hybrid/SQL/API).
+  that RAG ≠ embeddings (retrieval can be vector/BM25/hybrid/SQL/API).
 - **Groq** — inference-only (no training, no caching/batch API); does support
   multimodal (`qwen`) and LoRA *serving*.
 - **Two independent curriculum evaluators** (market-lens + pedagogy-lens), each
@@ -144,7 +144,7 @@ compiles, links resolve except the forward ref to 10/01). Still to build: 09/02,
    Groq is a delivery detail; where Groq can't run a plan-named topic, show real
    provider API shapes as reference code instead of watering it down.
 5. **Fine-tuning stays late, decision-framed**, with an optional fenced GPU LoRA
-   appendix — matches plan ("conceptually only") without ignoring LoRA's rise.
+   appendix, matching the plan ("conceptually only") without ignoring LoRA's rise.
 6. **Security after agents; ops after security** — cross-cutting "make it real"
    concerns need a real system to be meaningful. Both evaluators endorsed.
 
@@ -152,17 +152,17 @@ compiles, links resolve except the forward ref to 10/01). Still to build: 09/02,
 
 - Multimodal / multi-agent as hands-on core modules (see #3).
 - Standalone prompt-engineering *hero module* (both evaluators warned it breeds
-  cargo-cult tricks). BUT — an audit (2026-08-20) found the intended "woven in"
+  cargo-cult tricks). BUT an audit (2026-08-20) found the intended "woven in"
   fold-in never actually happened: prompting was *used* everywhere, *taught*
   nowhere. Fixed by adding `01-model-apis/00-prompting-basics` (fundamentals as
   the on-ramp to structured output: clear instructions, few-shot, format specs,
-  CoT — tied to the eval habit, anti-cargo-cult). Not a hero module; a short
+  CoT, tied to the eval habit, anti-cargo-cult). Not a hero module; a short
   front-of-section fold-in, which is what the plan intended all along.
 - Fine-tuning internals / RLHF / classical ML / agent-framework deep-dives
   (plan says skip).
 - Data-pipeline / deploy-infra notebooks (that's the capstone's job).
 
-## Phase 2 — DONE (2026-08-17)
+## Phase 2: DONE (2026-08-17)
 
 All four evaluator-recommended polish items shipped:
 
@@ -196,34 +196,34 @@ the still-pending end-to-end Colab execution pass (see caveats).
 
 ## Harness-engineering notebook added (2026-08-25)
 
-- New **05/06-harness-engineering** (runnable — reuses section 01's FS/tools/loop
+- New **05/06-harness-engineering** (runnable; reuses section 01's FS/tools/loop
   on Groq). Names the third axis alongside prompt-engineering (the message) and
   model-adaptation (the weights): **harness engineering = the scaffold around the
-  call**. Framed as a *synthesis* closer — an explicit table reframes 01–05 as
+  call**. Framed as a *synthesis* closer: an explicit table reframes 01–05 as
   harness components (loop / tool-input / bounds / external-tools / packaged
   know-how), then teaches the three levers the section left implicit: **(1)
   context assembly & compaction** (window = per-turn budget you rebuild; keep
   task+recent+commitments, summarize the middle), **(2) tool-result shaping** (the
-  *return* side of nb-02: truncate blobs head+tail, make errors actionable — wired
+  *return* side of nb-02: truncate blobs head+tail, make errors actionable, wired
   via a `shape_result` seam added to the compact loop), **(3) verification loops**
-  (harness computes ground truth in code and loops on failure — nb-03's
+  (harness computes ground truth in code and loops on failure; nb-03's
   trajectory-eval pointed at the output). Closes with an ASCII harness diagram
   ("model is fixed; everything else is code you own") and the rule *fix the
   harness before reaching for a bigger model / fine-tune (§06)*. Does NOT reopen
   decision #3: single-agent context/scaffold engineering, not orchestration.
   README + best-practices 05 table + this log updated; all internal links
-  verified. Static-only per standing caveat (not executed — no key here); the new
+  verified. Static-only per standing caveat (not executed, no key here); the new
   verification-loop cell makes real model calls, so flag it in the Colab pass.
 
 ## Skills notebook added (2026-08-23)
 
-- New **05/05-skills-and-progressive-disclosure** (concept-only, no runnable code
-  — same fence as MCP: Skills live in an agent host, not a raw Groq
+- New **05/05-skills-and-progressive-disclosure** (concept-only, no runnable code,
+  same fence as MCP: Skills live in an agent host, not a raw Groq
   `chat.completions` call). Closes a real gap: the repo taught tools, the agent
   loop, and MCP, but not how to *package reusable know-how* an agent loads on
   demand. Framed **pattern-first** (progressive disclosure / "context is a
-  budget") with Anthropic's `SKILL.md` as the concrete instance — deliberately,
-  because the format is now an **open standard** (agentskills.io) adopted across
+  budget") with Anthropic's `SKILL.md` as the concrete instance. This was
+  deliberate, because the format is now an **open standard** (agentskills.io) adopted across
   vendors (OpenAI Codex, Gemini CLI, editors), so it's a durable pattern, not a
   vendor feature. Spine is the trio **Tools *act* / MCP *connects* / Skills
   *package***. Cross-linked from 04-mcp; README + this doc updated. Details
@@ -231,7 +231,7 @@ the still-pending end-to-end Colab execution pass (see caveats).
   frontmatter (`name`, `description` required; no `version`), 3-level
   progressive disclosure (~100 tok metadata → <5k body → bundled files/scripts,
   scripts run via bash so only output enters context). This does NOT reverse
-  decision #3 (multi-agent/multimodal stay off-spine) — Skills is a
+  decision #3 (multi-agent/multimodal stay off-spine): Skills is a
   single-agent context-management concept, not orchestration.
 
 ## Adaptation: FFT-vs-LoRA second axis (added 2026-08-23)
@@ -244,10 +244,10 @@ the still-pending end-to-end Colab execution pass (see caveats).
   GPU). Two AWS citations verified against live posts 2026-08-23: multi-LoRA
   vLLM serving on SageMaker/Bedrock (confirms swap-adapters-per-request; qual.
   "5×10%-GPU → 1 GPU"), and Bedrock Custom Model Import GA (confirms full/merged
-  Safetensors only — a LoRA must be merged in first, consistent with the
+  Safetensors only, so a LoRA must be merged in first, consistent with the
   existing cell-9 Bedrock note). Two new exercises (FFT-vs-LoRA judgment; design
   the multi-adapter serving story). Deliberately kept decision-framed, not an
-  internals deep-dive — no optimizer/gradient math. Doubles down on the
+  internals deep-dive: no optimizer/gradient math. Doubles down on the
   taxonomy precision from the [reframe below]; best-practices 06 table updated.
 
 ## Adaptation notebook reframe (added 2026-08-22)
@@ -257,11 +257,11 @@ the still-pending end-to-end Colab execution pass (see caveats).
   popularity, plus a "pendulum" cell (fine-tune was the early default → field swung
   to prompt/RAG → fine-tuning specialized to style-at-scale + small-model
   distillation). Taxonomy precision added: LoRA is a *kind* of fine-tuning, not a
-  peer. Hosted reference code expanded to a verified 3-tier split — **abstracted**
+  peer. Hosted reference code expanded to a verified 3-tier split: **abstracted**
   (OpenAI, Bedrock: no LoRA knob) vs **explicit-LoRA** (Together, Fireworks:
   `lora=True`/`--lora-rank`) vs self-train (`peft`). All snippets reference-only.
   Provider APIs verified against live docs 2026-08-22; corrected a prior wrong
-  claim that Bedrock yields a "LoRA endpoint" (Bedrock has no LoRA surface —
+  claim that Bedrock yields a "LoRA endpoint" (Bedrock has no LoRA surface;
   explicit LoRA on AWS is SageMaker).
 
 ## Callout theming (added 2026-08-18)
@@ -290,67 +290,67 @@ not three variations of RAG-QA:
   adversarial benchmark harness, classifier, semantic recommender, …)
 
 Home decided (2026-08-26): section **12 renamed "Case Studies & Capstone"** (dir
-`12-case-studies-and-capstone/`). Cases and the capstone brief now live together
-— cases are the worked examples, the capstone is "now build your own." By case
+`12-case-studies-and-capstone/`). Cases and the capstone brief now live together:
+cases are the worked examples, the capstone is "now build your own." By case
 nature: **narrative-heavy full-stack cases could be docs, but per user request A
 is a RUNNABLE notebook**; self-contained cases (C, D) are runnable notebooks too.
-The capstone brief stays docs (`CAPSTONE.md`) — a notebook project signals
+The capstone brief stays docs (`CAPSTONE.md`): a notebook project signals
 "weekend hacker"; a case study can be a notebook because it's a worked example,
 the student's capstone must be a real deployed repo.
 
 **Status:** A BUILT + RUNNABLE (2026-08-26) as
 `12-case-studies-and-capstone/01-customer-support-assistant.ipynb` (28 cells,
 needs a Groq key). Narrative preserved from the original draft, plus minimal
-runnable code per phase on a 6-article corpus + 5-question golden set — the
+runnable code per phase on a 6-article corpus + 5-question golden set. The
 Phase-8 regression is REAL: `index_corpus()` seam left stale after a corpus
 migration → eval score drops → re-index → recovers. Section `README.md` (cases
 then capstone) + `CAPSTONE.md` (renamed from the old capstone README). Old
 `docs/case-studies/` removed; drafts deleted. All links verified. Static-only
-here (no key) — run in Colab to confirm like 06/09.
+here (no key); run in Colab to confirm like 06/09.
 
 **C and D BUILT + RUNNABLE (2026-08-26)** as `02-...pipeline-vs-agent.ipynb` and
 `03-red-team-robustness-benchmark.ipynb`. NOTE: case-study *letters* renumbered to
-match file order — A (customer support), **B = contract extraction pipeline-vs-agent**
+match file order: A (customer support), **B = contract extraction pipeline-vs-agent**
 (was "C"), **C = red-team benchmark** (was "D"). B builds the same extraction task
 as both an agent and a pipeline and proves with accuracy + token count that the
 pipeline wins when steps are known (05/03's thesis, measured). C is a NEW system
-type — an attacker→target→judge PAIR loop reporting ASR (generalized from the
+type: an attacker→target→judge PAIR loop reporting ASR (generalized from the
 user's résumé jailbreaker project); framed DEFENSIVELY on a harmless proxy task
-("never reveal a secret passphrase") — no real harmful content or transferable
+("never reveal a secret passphrase"), with no real harmful content or transferable
 jailbreaks. All three cases now listed in section README + main README; all
 compile + links + badges verified. Case-study backlog COMPLETE (E/F still
-deferred). All static-only (need Groq key) — run in Colab to confirm.
+deferred). All static-only (need Groq key); run in Colab to confirm.
 
 **Locked into backlog (user picked A+C+D):**
 - **A — Customer-support assistant, scoping → deployed** (flagship, DONE). Build angle;
   RAG + agent. Threads 11 scoping → 03 RAG → 02/04 evals → 05 agent (order
   lookup) → 07 injection defense (tickets are an attack surface) → 09 serving →
   08 observability → 11 demo. **Ends with a "two weeks later, answer quality
-  collapsed — diagnose it" act** (the old "3am incident" idea folded in as A's
+  collapsed, diagnose it" act** (the old "3am incident" idea folded in as A's
   final scene, using 08 tracing + 04 regression eval): covers build→debug in one
   arc. The living exemplar for the capstone.
 - **C — Contract extraction: pipeline vs agent** (decision angle, lighter). The
   interview judgment call: the tempting agent vs the correct pipeline when steps
   are known; argue it with eval + cost numbers. Completes 05's
   "pipeline-beats-agent" thesis as a full worked case.
-- **D — Red-team robustness benchmark** (adversarial harness / benchmark — a NEW
+- **D — Red-team robustness benchmark** (adversarial harness / benchmark; a NEW
   application type for the repo: build a harness to *evaluate/attack* models, not
   serve one). Generalized from the user's real résumé project (a PAIR-loop
   jailbreaker: attack model → target → Llama-Guard judge, ~68% ASR). Composes 05
   loop + 04 LLM-as-judge + 07 security + 02 evals (ASR metric). Runnable on Groq
   (attack/target/judge all have Groq models incl. Llama Guard).
 
-**Considered, deferred (E/F):** E — AI-generated-text / clickbait detection (LLM
+**Considered, deferred (E/F):** E, AI-generated-text / clickbait detection (LLM
 classifier + eval; text version is on-thesis, image detection is multimodal =
-off-thesis). F — semantic recommender + explanation (embedding retrieval + LLM
+off-thesis). F, semantic recommender + explanation (embedding retrieval + LLM
 rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
 
 ## Standing caveats
 
 - **Most notebooks verified statically only** (JSON structure, code compiles,
-  badges/cross-refs consistent) — not executed here (no API key). Before treating
+  badges/cross-refs consistent), not executed here (no API key). Before treating
   any as final, run top-to-bottom in Colab. **Exceptions now verified live on a
-  Colab T4 (2026-08-26): 06 LoRA appendix and 09/01+09/02 vLLM appendices** — see
+  Colab T4 (2026-08-26): 06 LoRA appendix and 09/01+09/02 vLLM appendices**: see
   the [[colab-gpu-vllm-gotchas]] memory for the fixes applied. 08/03 MLflow ran
   green locally. Remaining highest risk: the live-call key-path notebooks (00–05,
   07, 08/01-02, 11) never executed end-to-end.
