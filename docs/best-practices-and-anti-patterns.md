@@ -5,7 +5,7 @@ notebooks and organized by section. Two uses:
 
 - **Pre-interview review.** "What would you watch out for building this?" is a
   real system-design / customer-scenario question. This is the answer sheet.
-- **Pre-capstone checklist.** Before you ship the resume project (section 10),
+- **Pre-capstone checklist.** Before you ship the resume project (section 12),
   walk this and make sure you're on the ✅ side of each row.
 
 Anti-patterns sit next to the practice they violate on purpose: the mistake is
