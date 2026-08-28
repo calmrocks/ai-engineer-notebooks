@@ -1,7 +1,7 @@
 # Capstone: the deployed project
 
 The notebooks teach the skills; this project is what goes on your resume.
-It is deliberately **not** a notebook — a notebook project signals
+It is deliberately **not** a notebook: a notebook project signals
 "weekend hacker" in a loop that screens for production judgment. Build it
 as a real repo, deployed, that you can hand an interviewer a link to.
 
@@ -9,7 +9,7 @@ Full requirements and anti-patterns:
 [Guide: Building a Real LLM Project for Your Resume](https://www.calm.rocks/resources/career-development/real-llm-project/).
 
 **See it done first:** [Case study A](01-customer-support-assistant.ipynb) walks
-one project — a customer-support assistant — from a vague ask all the way to
+one project (a customer-support assistant) from a vague ask all the way to
 deployed and then *debugged in production*, with runnable code at each phase.
 It's the shape of what you're about to build; read (and run) it before you start.
 
@@ -26,7 +26,7 @@ It's the shape of what you're about to build; read (and run) it before you start
 - **A write-up** — the user's problem, the system, the eval results, what
   you'd do next. You should survive 15 minutes of hostile questioning on it.
 
-## Use the modern stack — don't reinvent it
+## Use the modern stack, don't reinvent it
 
 The teaching notebooks were framework-free *on purpose*: you built the agent
 loop, RAG, and evals from raw parts so you understand what every library is
@@ -35,7 +35,7 @@ be ready to explain, for each tool, *what it does and why you chose it*. That
 "I built it by hand first, then reached for the framework" arc is itself a
 strong interview answer.
 
-A mainstream, resume-legible stack (pick what your project needs — not all of it):
+A mainstream, resume-legible stack (pick what your project needs, not all of it):
 
 | Layer | Reach for | Taught in |
 |---|---|---|
@@ -43,10 +43,10 @@ A mainstream, resume-legible stack (pick what your project needs — not all of 
 | **Serving / inference** | vLLM or TGI (self-host); a managed API to start | 09/01 |
 | **Inference performance** | continuous batching, quantization, KV-cache sizing | 09/02 |
 | **Fine-tuning (if it earns it)** | LoRA / QLoRA via PEFT | 06 |
-| **Experiment tracking & registry** | MLflow — track every eval run, register the shipped model | 08/03 |
+| **Experiment tracking & registry** | MLflow: track every eval run, register the shipped model | 08/03 |
 | **Observability** | tracing, safe logging, cost/latency metrics | 08/01 |
 
-> You are **not** on an algorithms track — no one expects novel modeling. The
+> You are **not** on an algorithms track; no one expects novel modeling. The
 > hire signal is **AI distributed-systems / application engineering**: wiring a
 > modern stack into a deployed, evaluated, operable system, and making the
 > cost/latency/quality trade-offs consciously.
@@ -77,17 +77,17 @@ Put a short **system-design section** in your write-up:
 Interviewers press on numbers. "≈40 peak QPS, ~2 GPUs at 70% util, ~$3k/mo,
 halve it by quantizing" is a passing answer; "it's deployed on the cloud" is not.
 
-## Simulate the team — roles, Agile/Scrum, and the resume story
+## Simulate the team: roles, Agile/Scrum, and the resume story
 
 This experience is meant to read on your resume as **an internship-grade project**,
 which means it needs a *working-process* story, not just an artifact. Interviewers
 ask "what was your role? how did the team work? how did you handle changing
-requirements?" — so build (or role-play with your mentor) a realistic delivery
+requirements?" So build (or role-play with your mentor) a realistic delivery
 process and know where you sat in it.
 
 **Run it as sprints.** Two-week sprints with a backlog, sprint planning, a
 standup cadence, and a retro. Track work as tickets (GitHub Issues/Projects is
-fine). Even solo, narrate it as sprints — it's how the work actually gets
+fine). Even solo, narrate it as sprints; it's how the work actually gets
 discussed in the interview.
 
 **Know the roles, even if you wore several hats.** On a real team this project
@@ -104,12 +104,12 @@ would spread across:
 
 Pick the role you'll **claim** on the resume (usually AI/ML Engineer or a
 blended AI-systems role), own it deeply, and be able to speak to how you handed
-off to and depended on the others — that's the collaboration question.
+off to and depended on the others: that's the collaboration question.
 
 > **Mentor role-play (recommended).** Have your mentor act as PM/stakeholder:
 > hand you a vague ask, change a requirement mid-sprint, push back on a demo,
 > and ask "why this architecture?" in a mock review. Rehearsing the *process*
-> questions is as important as the technical ones — most candidates can describe
+> questions is as important as the technical ones; most candidates can describe
 > the system but freeze on "how did the team decide that?"
 
 **Put it on the resume as process + impact**, e.g.:
@@ -120,15 +120,15 @@ quantization, validated against a 50-case golden set."*
 
 ## Before you ship
 
-Walk the [best practices & anti-patterns cheat sheet](../docs/best-practices-and-anti-patterns.md)
-— the do/don't for the whole stack in one place. It's also the answer sheet
+Walk the [best practices & anti-patterns cheat sheet](../docs/best-practices-and-anti-patterns.md):
+the do/don't for the whole stack in one place. It's also the answer sheet
 for the "what would you watch out for building this?" interview question. Make
 sure your project is on the ✅ side of each row before you call it done.
 
 ## The interview readiness check
 
-Before you call the capstone done, make sure you can answer each of these cold —
-they are the rounds the whole repo has been preparing you for:
+Before you call the capstone done, make sure you can answer each of these cold.
+They are the rounds the whole repo has been preparing you for:
 
 - **Scoping** — "how did you turn the user's vague ask into this system?" (11)
 - **Technical deep-dive** — "walk me through retrieval / the agent loop / your
