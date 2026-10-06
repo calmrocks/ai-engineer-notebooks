@@ -1,6 +1,6 @@
 # Shared corpus
 
-One deliberately messy corpus used across the RAG (02) and evals (03)
+One deliberately messy corpus used across the RAG (03) and evals (04)
 sections, so the eval notebooks measure the retrieval you actually built.
 
 Every RAG/evals notebook includes the same corpus-download cell (self-contained),
