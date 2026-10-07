@@ -4,7 +4,7 @@ Working notes on the structure of this repo: why the sections are what they
 are, what was researched, what was decided (and rejected), and what's still
 open. Kept so the reasoning survives even if the conversation context is lost.
 
-Last updated: 2026-08-17.
+Last updated: 2026-10-07.
 
 ## What this repo is
 
@@ -347,13 +347,14 @@ rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
 
 ## Standing caveats
 
-- **Most notebooks verified statically only** (JSON structure, code compiles,
-  badges/cross-refs consistent), not executed here (no API key). Before treating
-  any as final, run top-to-bottom in Colab. **Exceptions now verified live on a
-  Colab T4 (2026-08-26): 06 LoRA appendix and 09/01+09/02 vLLM appendices**: see
-  the [[colab-gpu-vllm-gotchas]] memory for the fixes applied. 08/03 MLflow ran
-  green locally. Remaining highest risk: the live-call key-path notebooks (00–05,
-  07, 08/01-02, 11) never executed end-to-end.
+- **Executed end to end in Colab (as of 2026-10).** All notebooks have been run
+  top to bottom, except a few involved ones not yet re-run. GPU appendices (06
+  LoRA, 09/01 + 09/02 vLLM) were verified on a Colab T4 on 2026-08-26: see the
+  [[colab-gpu-vllm-gotchas]] memory for the fixes applied. 08/03 MLflow ran green
+  locally.
+- **Outputs are stripped on purpose.** Notebooks are committed without outputs
+  or execution counts to keep diffs clean. Results are visible only by running
+  in Colab; this is policy, not missing verification.
 - **Models:** repo uses `openai/gpt-oss-120b` / `-20b` (current Groq production).
   Re-verify against Groq's model list if calls 404.
 - **Colab has no repo checkout** → notebooks install `aien` via
