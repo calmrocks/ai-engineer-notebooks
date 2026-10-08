@@ -358,5 +358,7 @@ rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
 - **Models:** repo uses `openai/gpt-oss-120b` / `-20b` (current Groq production).
   Re-verify against Groq's model list if calls 404.
 - **Colab has no repo checkout** → notebooks install `aien` via
-  `pip install "git+https://github.com/calmrocks/ai-engineer-notebooks.git"`,
-  pulling from `main` (latest). Breaking `aien` changes hit published notebooks.
+  `pip install "git+https://github.com/calmrocks/ai-engineer-notebooks.git@v0.1.0"`,
+  pinned to a tag (since 2026-10-08) so changes on `main` can't break published
+  notebooks. Changing `aien` means: bump the version, tag it, then update the pin
+  in every notebook.
