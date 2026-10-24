@@ -349,18 +349,28 @@ classifier + eval). The *image* version was originally called off-thesis
 classifier/eval case rather than a multimodal module. F, semantic recommender + explanation (embedding retrieval + LLM
 rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
 
-**D — Deepfake image detection: is a VLM the right tool? (SKELETON, 2026-10-23)**
-as `12-case-studies-and-capstone/04-deepfake-image-detection.ipynb`. New
-application type for the repo: a **classifier** judged by recall / FPR / AUC at a
-chosen threshold, not accuracy. Scope: photorealistic generated or face-swapped
-images of people; memes/satire explicitly out of scope. Compares a zero-shot VLM
-(`qwen/qwen3.8-27b` on Groq, per Groq vision docs 2026-10) against a dedicated
-detector (fenced optional appendix, like 06/09), per difficulty tag, then a
-threshold-at-target-FPR step and a JPEG-recompression robustness test. Thesis:
-VLM fluency is not calibration; the VLM belongs in reviewer triage, next to the
-classifier. Data rules: licensed public datasets only, license recorded per
-item, no images of private individuals, held-out split. **Not runnable yet:**
-`DATASET` manifest and `detector_score` are TODO; never executed.
+**D — Deepfake detection for EU AI Act Art. 50(4) (BUILT 2026-10-23)** as
+`12-case-studies-and-capstone/04-deepfake-image-detection.ipynb` (47 cells).
+Replaced the same-day skeleton. Framed on **Art. 50(4)** (deployer must disclose
+deepfakes), not 50(3) (that's emotion recognition); a violation = generated AND
+depicts a real entity/event (not evident fiction) AND published without
+disclosure. Data: **OpenFake** `core` (HF `ComplexDataLab/OpenFake`, CC BY-NC
+4.0, has generator + release date + prompt per row); generators released on/after
+`HOLDOUT_AFTER` are held out as "unseen". Test set gets controlled disclosures
+(none / visible label / IPTC trainedAlgorithmicMedia XMP) and two variants
+(original / laundered JPEG, which strips metadata). Condition 2 uses **silver
+labels** from the text model reading the prompt (audited in exercise 1).
+Compares A (CLIP ViT-B/32 linear probe, CPU, threshold calibrated at 5% FPR),
+B (VLM `qwen/qwen3.8-27b` end to end), D (provenance byte check), and systems
+A only / A+D / B / C hybrid on detection (AUC, recall seen vs unseen, FPR) and
+compliance (precision/recall). VLM + silver results cached to
+`case_d_cache.json` (scores only, never images). **GPU appendix:** ViT-L/14
+probe on 6k images + LoRA fine-tune (peft, q/v proj) with and without JPEG
+augmentation, registered into the same reports. Deliberately uses
+`transformers` + `scikit-learn` for the classical-ML detector (stated in the
+notebook). **Verification:** main path ran end to end locally with stubbed
+dataset/Groq/CLIP (tables render, cache prevents repeat calls); NOT yet run
+against real OpenFake / Groq, and the GPU appendix is untested.
 
 ## Standing caveats
 
