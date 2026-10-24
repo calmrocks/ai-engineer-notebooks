@@ -26,10 +26,11 @@ evals, agents, adaptation, serving) using raw APIs, not frameworks.
   can't host, LoRA fine-tuning (06) and self-hosted serving (09), are
   concept-first with optional, fenced Colab-GPU appendices that were **verified on
   a real Colab T4**.
-- **Real case studies, not toy demos.** Three end-to-end
+- **Real case studies, not toy demos.** Four end-to-end
   [case studies](12-case-studies-and-capstone/) show the skills combined under
   real constraints: a support assistant *debugged in production*, a
-  pipeline-vs-agent cost showdown, and a red-team robustness benchmark.
+  pipeline-vs-agent cost showdown, a red-team robustness benchmark, and a
+  deepfake-detection eval that asks whether a VLM is the right tool at all.
 - **OpenAI-compatible throughout**, so every pattern transfers directly to OpenAI
   and (with small changes) Anthropic. Swap the base URL and the skills carry over.
 
@@ -153,6 +154,7 @@ deployed repo you build yourself. ([Section overview](12-case-studies-and-capsto
 | [Case study A — Customer-support assistant](12-case-studies-and-capstone/01-customer-support-assistant.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/01-customer-support-assistant.ipynb) | One scenario scoped → built → served → **debugged in production**: a vague ask becomes a deployed, evaluated RAG+agent assistant, then a live quality regression (a stale index after a corpus migration) that you diagnose and fix. A build-to-debug arc threading sections 02–11 |
 | [Case study B — Contract extraction: pipeline vs agent](12-case-studies-and-capstone/02-contract-extraction-pipeline-vs-agent.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/02-contract-extraction-pipeline-vs-agent.ipynb) | The judgment call interviewers love: build the *same* extraction task as both an agent and a pipeline, then prove with accuracy + token cost that the pipeline wins when the steps are known |
 | [Case study C — Red-team robustness benchmark](12-case-studies-and-capstone/03-red-team-robustness-benchmark.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/03-red-team-robustness-benchmark.ipynb) | A different *kind* of system, a harness that evaluates a model instead of serving one: an attacker→target→judge (PAIR) loop that measures attack success rate, composing the agent loop, LLM-judge, security, and evals |
+| [Case study D — Deepfake image detection](12-case-studies-and-capstone/04-deepfake-image-detection.ipynb)<br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/calmrocks/ai-engineer-notebooks/blob/main/12-case-studies-and-capstone/04-deepfake-image-detection.ipynb) | *(Skeleton.)* A classifier, not a service: is a zero-shot VLM the right tool for flagging generated or face-swapped photos? Measured against a dedicated detector on recall and false-positive rate at a chosen threshold, per difficulty group and after recompression |
 
 **Capstone:** [the brief](12-case-studies-and-capstone/CAPSTONE.md) for the deployed
 project that goes on your resume, a real repo with a serving component and an

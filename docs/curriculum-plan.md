@@ -140,6 +140,9 @@ compiles, links resolve except the forward ref to 10/01). Still to build: 09/02,
    hands-on "rewards exactly the instinct the curriculum should suppress").
    Multimodal's only strong argument was Groq feasibility, which is not a
    plan-priority. → not added as modules.
+   **Amended 2026-10-23:** multimodal may appear inside a *case study* (12/04,
+   deepfake image detection) because there it composes the evals spine rather
+   than teaching a new modality. Still no multimodal *module*.
 4. **Priority rule (user):** "does the plan want it" > "does it stay on Groq."
    Groq is a delivery detail; where Groq can't run a plan-named topic, show real
    provider API shapes as reference code instead of watering it down.
@@ -341,9 +344,23 @@ deferred). All static-only (need Groq key); run in Colab to confirm.
   (attack/target/judge all have Groq models incl. Llama Guard).
 
 **Considered, deferred (E/F):** E, AI-generated-text / clickbait detection (LLM
-classifier + eval; text version is on-thesis, image detection is multimodal =
-off-thesis). F, semantic recommender + explanation (embedding retrieval + LLM
+classifier + eval). The *image* version was originally called off-thesis
+(multimodal); it was picked up instead as **Case D** (below), framed as a
+classifier/eval case rather than a multimodal module. F, semantic recommender + explanation (embedding retrieval + LLM
 rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
+
+**D — Deepfake image detection: is a VLM the right tool? (SKELETON, 2026-10-23)**
+as `12-case-studies-and-capstone/04-deepfake-image-detection.ipynb`. New
+application type for the repo: a **classifier** judged by recall / FPR / AUC at a
+chosen threshold, not accuracy. Scope: photorealistic generated or face-swapped
+images of people; memes/satire explicitly out of scope. Compares a zero-shot VLM
+(`qwen/qwen3.8-27b` on Groq, per Groq vision docs 2026-10) against a dedicated
+detector (fenced optional appendix, like 06/09), per difficulty tag, then a
+threshold-at-target-FPR step and a JPEG-recompression robustness test. Thesis:
+VLM fluency is not calibration; the VLM belongs in reviewer triage, next to the
+classifier. Data rules: licensed public datasets only, license recorded per
+item, no images of private individuals, held-out split. **Not runnable yet:**
+`DATASET` manifest and `detector_score` are TODO; never executed.
 
 ## Standing caveats
 
