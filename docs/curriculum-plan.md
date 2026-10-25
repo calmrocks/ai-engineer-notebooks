@@ -371,6 +371,22 @@ augmentation, registered into the same reports. Deliberately uses
 notebook). **Verification:** main path ran end to end locally with stubbed
 dataset/Groq/CLIP (tables render, cache prevents repeat calls); NOT yet run
 against real OpenFake / Groq, and the GPU appendix is untested.
+**Colab OOM fix (2026-10-24):** the first Colab run crashed in the sampling
+cell (all RAM used): streaming `.shuffle(buffer_size=5_000)` held 5k rows with
+full-size images. Testing against real OpenFake also showed (a) rows are stored
+grouped by source, so small shuffle buffers don't mix; (b) streaming downloads
+every skipped image (~0.7 MB each; a 30-image sample ran for hours); (c)
+`release_date` mixes `YYYY-MM-DD`, `YYYY-MM`, `unknown`, `None`, and the string
+compare put `unknown` (older, undated generators) in "unseen". `sample()` now
+reads the parquet files directly (`HfFileSystem` + `pyarrow`): pass 1 reads only
+label/model/release_date from random row groups, rows are picked round-robin
+across generators, pass 2 downloads only the row groups holding picked rows.
+Dates are normalized; undated = seen. **Verified on real OpenFake:** test (120)
+and validation (200) sample in ~3 min each at 0.8 GB RAM. Finding, now a
+callout + printout in the notebook: splits are not i.i.d. (validation reals =
+LAION/Pexels, test reals = ImageNet/DOCCI; different older generators), so
+calibrated FPR may not transfer. Still not run: train sampling at full size,
+Groq calls, GPU appendix.
 
 ## Standing caveats
 
