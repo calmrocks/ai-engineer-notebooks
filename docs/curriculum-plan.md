@@ -403,6 +403,23 @@ serves, row groups that always fail (run 1 stops, run 2 downloads only those
 two, run 3 downloads nothing and returns identical ids). Not yet re-run in
 Colab.
 
+**Groq daily cap (2026-10-26):** a Colab run failed on rate limits mid-way
+(outputs lost, so inferred, not observed). Groq's rate-limit docs list the
+vision model at 30 RPM, 8K TPM, **200K TPD** (labelled Developer-plan base
+limits; check the org's limits page). At ~2.2K tokens/image, the old default
+(120 images × 2 variants = 240 calls ≈ 530K tokens) needs ~3 days, and a
+daily cap can't be retried away. Changes: `N_TEST` 30/30/30 (180 calls ≈ 2
+days); `VLM_TOKENS_PER_DAY` + `vlm_budget()` print calls left and days needed
+(per-call tokens measured from the cache once available); `run_all()` catches
+`groq.RateLimitError` (aien builds a `groq.Groq` client, not openai) and
+pauses instead of crashing; `collect()` keeps only rows with a VLM result so
+all approaches are compared on the same images, prints coverage, and says to
+rerun after the reset. Originals run first, so day 1 yields the `original`
+tables. Setup cell shows how to put `CACHE_PATH` and `SAMPLE_DIR` on Drive so
+a run can span days. Tested offline with a stubbed TPD 429 after 100 calls:
+day 1 pauses at laundered 11/90 and reports render; day 2 makes only the 80
+missing calls.
+
 ## Standing caveats
 
 - **Executed end to end in Colab (as of 2026-10).** All notebooks have been run
