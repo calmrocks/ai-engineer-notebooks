@@ -387,6 +387,21 @@ callout + printout in the notebook: splits are not i.i.d. (validation reals =
 LAION/Pexels, test reals = ImageNet/DOCCI; different older generators), so
 calibrated FPR may not transfer. Still not run: train sampling at full size,
 Groq calls, GPU appendix.
+**Hub timeouts (2026-10-26):** in Colab, train sampling hit `The read
+operation timed out` on parquet reads (~100 MB row groups). Retrying alone
+isn't enough, since a split that fails loses everything downloaded, so
+`sample()` is now **resumable**: `HF_HUB_DOWNLOAD_TIMEOUT=60` (default 10s),
+each read retried 4× with backoff, and the plan (which rows) plus every
+finished row group are checkpointed (pickle, atomic write) under
+`SAMPLE_DIR`. If a row group still fails, the cell raises with a "rerun this
+cell" message; the rerun only downloads what's missing (`allow_partial=True`
+continues without it). A pass-1 file that won't serve is skipped. The
+checkpoints hold downscaled OpenFake images (CC BY-NC), so the notebook now
+says to keep `SAMPLE_DIR` private and delete it after; mounting Drive keeps it
+across runtime restarts. Tested offline: injected timeouts, a file that never
+serves, row groups that always fail (run 1 stops, run 2 downloads only those
+two, run 3 downloads nothing and returns identical ids). Not yet re-run in
+Colab.
 
 ## Standing caveats
 
