@@ -420,6 +420,28 @@ a run can span days. Tested offline with a stubbed TPD 429 after 100 calls:
 day 1 pauses at laundered 11/90 and reports render; day 2 makes only the 80
 missing calls.
 
+**Restructure for a cheap first run (2026-10-29):** (1) Sampling now uses the
+HF dataset viewer `/rows` API instead of parquet: 100 rows of metadata per
+request from any offset, each with a link to its own image, so only picked
+images download (~100-200 KB each, 8 threads). Plan (`plan.json`) and each
+image are checkpointed in `SAMPLE_DIR`; expired signed links are refreshed by
+re-reading the row. Verified on real OpenFake with the defaults: test 15 /
+validation 100 / train 200 images in 2.7 min total, 0.1 GB RAM, 43 MB disk,
+11 / 39 / 37 distinct generators. Caveat in the notebook: the viewer serves
+images re-encoded as JPEG. The parquet sampler is in commit 9c19528 if the
+viewer API is ever unusable. (2) All size knobs in one place, tiny defaults:
+`N_TRAIN_PER_CLASS=100`, `N_CAL_PER_CLASS=50`, `N_TEST_PER_GROUP=5`,
+`VARIANTS=["original"]` (laundered is opt-in). Default run = 15 test VLM calls
++ 2 walkthrough calls. (3) New "One image, step by step" section before the
+batch run: one fake (real-entity prompt preferred) published with no
+disclosure and with a visible label, showing detector score vs threshold, VLM
+JSON + tokens, provenance, gold, and each system's flag; `SYSTEMS`/`flag()`
+moved there. Offline tests (rows-API stub): clean, flaky (343 retries), daily
+cap (pause at 9/15, day 2 makes the 7 missing calls), laundered on. **Open
+issue:** random OpenFake prompts rarely name real entities (real test sample:
+rooster, pangolin, catgirl...), so a small test set can have zero gold
+violations, which makes the compliance table all 0%.
+
 ## Standing caveats
 
 - **Executed end to end in Colab (as of 2026-10).** All notebooks have been run
