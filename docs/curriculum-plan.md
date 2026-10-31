@@ -442,6 +442,26 @@ issue:** random OpenFake prompts rarely name real entities (real test sample:
 rooster, pangolin, catgirl...), so a small test set can have zero gold
 violations, which makes the compliance table all 0%.
 
+**First Colab run + screened test group (2026-10-30):** The tiny default ran
+end to end in Colab: 15/15 VLM results, 0 unparsed, ~1,500-1,750 tokens per
+image (not 2,300), ~18.6 s per image mostly waiting on TPM. A probe AUC 1.00
+but recall 40-60% at the calibrated threshold (cal reals LAION/Pexels, test
+reals ImageNet/DOCCI: the threshold doesn't transfer); VLM AUC 0.78. As
+predicted, 0 gold violations, so the compliance table was all 0% and the
+walkthrough fell back to an evident-fiction image. In 206 test-split fake
+prompts only ~5 named a real entity. Fix: a fourth test group
+`fake_real_entity` (`SCREENED`), filled during `plan()` from fakes of any
+generator: a capitalised-name regex keeps ~28% of prompts (keeps all the real
+ones found), then the text model screens them 20 per call. Random groups are
+unchanged; detection AUC excludes the screened group; disclosures cycle per
+group so the screened group gets none/none/visible/metadata; the sample cell
+prints the screened prompts to audit; the walkthrough prefers a screened image.
+Default run is now 20 test + up to 2 walkthrough VLM calls. Offline tests:
+clean, flaky, daily cap pass. Not yet run against the real text model, so the
+real screen hit rate and text-call count are unmeasured. Still open: "seen"
+is defined by release date, and in the Colab run 0/5 `fake_seen` generators
+were actually in TRAIN.
+
 ## Standing caveats
 
 - **Executed end to end in Colab (as of 2026-10).** All notebooks have been run
