@@ -497,6 +497,18 @@ tool loaded and run on the 9 cases immediately, 5 the four systems compared,
 6 your own image with a plain **verdict** (C hybrid's decision plus the first
 condition that clears or flags it, and which systems disagree). The
 step-by-step single case is gone; 24 cells.
+Then the publish simulation was dropped too (user: just assume no disclosure):
+the 7 images are the 7 cases, gold = fake and real entity and not fiction (2
+violations), D runs but finds nothing on OpenFake files and matters only in
+step 6, "A + D" is gone (identical to A when nothing is disclosed), so three
+systems; disclosed copies became exercise 7. 22 cells, ~8 VLM calls.
+`A_generic` (umm-maybe, itself a Swin) was then replaced by `A_cnn`:
+CNNDetection (Wang et al. CVPR 2020, "Blur+JPEG (0.5)"), a torchvision
+ResNet-50 trained on ProGAN, weights from the authors' Dropbox (282 MB,
+loaded with `weights_only=True`), scored at up to 1024 px. No well-known CNN
+trained on OpenFake exists (all OpenFake-trained Hub models are
+Swin/ViT/CLIP). Locally it scores all 7 examples below 0.01, fakes included
+(logits -10 to -44, also at full resolution): the training-data lesson.
 
 ## Standing caveats
 
