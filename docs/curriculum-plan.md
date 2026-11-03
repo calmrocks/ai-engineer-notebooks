@@ -349,7 +349,8 @@ classifier + eval). The *image* version was originally called off-thesis
 classifier/eval case rather than a multimodal module. F, semantic recommender + explanation (embedding retrieval + LLM
 rerank; only on-thesis if framed as LLM/embedding recsys, not classical CF).
 
-**D — Deepfake detection for EU AI Act Art. 50(4) (BUILT 2026-10-23)** as
+**D — Deepfake detection for EU AI Act Art. 50(4) (BUILT 2026-10-23;
+SIMPLIFIED 2026-11-02, see the last note below)** as
 `12-case-studies-and-capstone/04-deepfake-image-detection.ipynb` (47 cells).
 Replaced the same-day skeleton. Framed on **Art. 50(4)** (deployer must disclose
 deepfakes), not 50(3) (that's emotion recognition); a violation = generated AND
@@ -461,6 +462,32 @@ clean, flaky, daily cap pass. Not yet run against the real text model, so the
 real screen hit rate and text-call count are unmeasured. Still open: "seen"
 is defined by release date, and in the Colab run 0/5 `fake_seen` generators
 were actually in TRAIN.
+
+**Simplified to a walkthrough (2026-11-02):** Hugging Face throttling (HTTP
+errors on `/rows` during the ~320-image sample) made the full eval painful in
+Colab, so the user chose a simple flow: load the models, judge a few hand-picked
+OpenFake cases, compare, then judge any image URL. Now 31 cells. **A** is
+off the shelf, threshold 0.5, no training or calibration data:
+`bendavidsteel/openfake-swinv2-base` (the OpenFake authors' demo detector,
+SwinV2-base, logits / 2.0) as `A_openfake`, plus `umm-maybe/AI-image-detector`
+(popular 2022 detector) as `A_generic` for contrast. **Examples:** 7 rows of
+`core/test` fetched by row number (2 requests each, cached in `SAMPLE_DIR`,
+429 `Retry-After` honoured): 6831 Real Madrid press conference and 29127 Daily
+Show set (real-entity fakes, flux.2-klein-9b), 3251 anonymous man in a "Bernie
+for President" shirt (deliberate edge case, labelled not a deepfake), 6814
+anime, and reals 6811 / 6851 / 6804. Hand labels replace silver labels.
+9 published cases (the two deepfakes also go out with a visible label and
+with XMP metadata), 2 gold violations, ~10 VLM calls in all. Dropped: the
+rows-API sampler, screened group, CLIP probe, laundering variant, and GPU
+appendix (now exercise 4, "train your own detector"); the full version is
+commit a16787b. Found while choosing examples: 86/100 rows on one test page
+have `prompt_kind = qwen_caption` (captions rarely name people), which is part
+of why real-entity prompts look rare; `published_prompt` rows keep names.
+Verified locally with real HF data and both real detectors (VLM stubbed):
+`A_openfake` 0.99-1.00 on every fake and ≤0.01 on every real; `A_generic`
+0.10 on the anonymous-man fake, 0.00 on anime, 0.41 on the Real Madrid fake;
+cached rerun makes 0 VLM calls; a daily cap mid-table pauses cleanly. Not yet
+run in Colab with the real VLM.
 
 ## Standing caveats
 
