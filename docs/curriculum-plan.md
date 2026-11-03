@@ -489,6 +489,15 @@ Verified locally with real HF data and both real detectors (VLM stubbed):
 cached rerun makes 0 VLM calls; a daily cap mid-table pauses cleanly. Not yet
 run in Colab with the real VLM.
 
+**Restructured into six steps (2026-11-02, same day):** after the first Colab
+run the user asked for a clearer order: 1 the ask, 2 the data (the 7 images
+shown with OpenFake's own label and generator, then the 9 cases with gold),
+3 the methods (tool table A / B / D, D explained, four-system table), 4 each
+tool loaded and run on the 9 cases immediately, 5 the four systems compared,
+6 your own image with a plain **verdict** (C hybrid's decision plus the first
+condition that clears or flags it, and which systems disagree). The
+step-by-step single case is gone; 24 cells.
+
 ## Standing caveats
 
 - **Executed end to end in Colab (as of 2026-10).** All notebooks have been run
