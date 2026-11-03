@@ -509,6 +509,15 @@ loaded with `weights_only=True`), scored at up to 1024 px. No well-known CNN
 trained on OpenFake exists (all OpenFake-trained Hub models are
 Swin/ViT/CLIP). Locally it scores all 7 examples below 0.01, fakes included
 (logits -10 to -44, also at full resolution): the training-data lesson.
+Added `A_clip`: `GPTchatly/slope-scope` (CLIP ViT-B/16 fine-tuned on OpenFake
++ 2025 generators, ONNX 172 MB, CC BY-NC, exact card preprocessing, sigmoid of
+the logit), 7/7 right locally (Mini Cooper 0.27 the closest). UnivFD (CVPR
+2023, frozen CLIP ViT-L/14 + linear, ProGAN-trained, 1.7 GB) was also tested:
+missed all 4 fakes and, with the authors' 224 centre crop, flagged the real
+Mini Cooper at 0.98; the user chose slope-scope only. Colab run before this
+(4ae56d8): VLM p_fake right on 7/7 (0.95 / 0.05-0.10 only), B and C 6/7 (both
+wrong on the Bernie edge case: the VLM named Bernie Sanders), C correctly
+cleared an AI landscape from a user URL that A_openfake scored 0.99.
 
 ## Standing caveats
 
