@@ -519,6 +519,20 @@ Mini Cooper at 0.98; the user chose slope-scope only. Colab run before this
 wrong on the Bernie edge case: the VLM named Bernie Sanders), C correctly
 cleared an AI landscape from a user URL that A_openfake scored 0.99.
 
+**Ten cases (2026-11-03):** the examples now cover Art. 50(4)'s "persons,
+objects, places, entities or events": Real Madrid (entity), Adele 4624 and
+Ronaldo 22194 (persons), yellow vests at the Eiffel Tower 88606 (event and
+place), plus a new evident-satire control, the Olympic jetpack pole vault
+20775 (real entity, fiction). The Daily Show was dropped. Found by downloading
+only the `prompt`/`label`/`model` columns of the 13 test parquet shards
+(the viewer's `/search` returned auth errors) and searching names. Political
+figures were avoided on purpose: there's no special Art. 50 rule for them
+(the final Code of Practice, June 2026, has none either), but non-political
+celebrities are less charged for teaching. The test split has no Taylor
+Swift, Musk or Biden fakes; captions are prompts, not contents (row 7419 asks
+for Adele and shows a picnic without her). Locally A_openfake scored Adele
+only 0.56; A_clip scored all seven fakes 1.00 and A_cnn 0.00.
+
 ## Standing caveats
 
 - **Executed end to end in Colab (as of 2026-10).** All notebooks have been run
